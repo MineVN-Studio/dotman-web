@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dotman-web",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": [
+        "run",
+        "dw:dev"
+      ],
+      "port": 5173,
+      "autoPort": true
+    },
+    {
+      "name": "dotman-web-preview",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": [
+        "run",
+        "dw:preview",
+        "--port",
+        "4180"
+      ],
+      "port": 4180
+    }
+  ]
+}

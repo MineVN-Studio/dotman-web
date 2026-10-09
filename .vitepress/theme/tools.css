@@ -1,0 +1,290 @@
+/* Style dùng chung cho các công cụ trong mục "Công cụ" (component có class .tool) */
+
+.tool {
+  display: grid;
+  gap: 20px;
+  margin: 24px 0;
+  font-family: var(--vp-font-family-base);
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+}
+
+.tool input,
+.tool textarea,
+.tool button {
+  font: inherit;
+}
+
+.tool code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  color: var(--vp-c-brand-1);
+}
+
+.tool-panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background-color: var(--vp-c-bg-soft);
+}
+
+.tool-panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .tool-grid.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tool-grid.cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tool-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tool-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+  font-weight: 600;
+}
+
+.tool-hint {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.tool input[type='text'],
+.tool input[type='number'],
+.tool input[type='datetime-local'],
+.tool input[type='date'],
+.tool textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+}
+
+.tool textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.tool input:focus,
+.tool textarea:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
+}
+
+.tool input:disabled {
+  opacity: 0.5;
+}
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.tool-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.tool-btn.primary {
+  border-color: var(--vp-c-brand-3);
+  background-color: var(--vp-c-brand-3);
+  color: var(--vp-c-white);
+}
+
+.tool-btn.primary:hover {
+  background-color: var(--vp-c-brand-2);
+  color: var(--vp-c-white);
+}
+
+.tool-btn.danger:hover {
+  border-color: var(--vp-c-danger-1);
+  color: var(--vp-c-danger-1);
+}
+
+.tool-btn.small {
+  padding: 3px 10px;
+  font-size: 13px;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* nhóm nút chọn một (segmented control) */
+.tool-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-self: start;
+  padding: 3px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background-color: var(--vp-c-bg);
+  gap: 2px;
+}
+
+.tool-seg button {
+  padding: 4px 12px;
+  border-radius: 7px;
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.tool-seg button:hover {
+  color: var(--vp-c-text-1);
+}
+
+.tool-seg button.active {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
+  box-shadow: var(--vp-shadow-1);
+}
+
+.tool-tag {
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--vp-badge-tip-text);
+  background-color: var(--vp-badge-tip-bg);
+}
+
+.tool-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.tool-error {
+  margin: 0;
+  color: var(--vp-c-danger-1);
+}
+
+.tool-muted {
+  color: var(--vp-c-text-2);
+}
+
+/* tooltip của directive v-tip (tools/tooltip.ts), gắn vào body nên không đặt trong .tool */
+.tool-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  max-width: 320px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: pre-line;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s, transform 0.12s;
+}
+
+.tool-tip.below {
+  transform: translateY(-4px);
+}
+
+.tool-tip.show {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+/* tiêu đề khung: bỏ margin mặc định của heading trong tài liệu */
+.vp-doc .tool .tool-panel-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+}
+
+/* ---- bộ chọn ngày giờ (@vuepic/vue-datepicker) theo màu của site ----
+   menu được đưa ra ngoài body nên không đặt trong .tool */
+:root .dp--theme-dark,
+:root .dp--theme-light {
+  --dp-font-family: var(--vp-font-family-base);
+  --dp-font-size: 14px;
+  --dp-preview-font-size: 13px;
+  --dp-border-radius: 8px;
+  --dp-cell-border-radius: 6px;
+  --dp-input-padding: 7px 30px 7px 12px;
+  --dp-input-icon-padding: 34px;
+  --dp-background-color: var(--vp-c-bg);
+  --dp-text-color: var(--vp-c-text-1);
+  --dp-hover-color: var(--vp-c-default-soft);
+  --dp-hover-text-color: var(--vp-c-text-1);
+  --dp-hover-icon-color: var(--vp-c-brand-1);
+  --dp-primary-color: var(--vp-c-brand-3);
+  --dp-primary-disabled-color: var(--vp-c-brand-soft);
+  --dp-primary-text-color: #ffffff;
+  --dp-secondary-color: var(--vp-c-text-3);
+  --dp-border-color: var(--vp-c-divider);
+  --dp-menu-border-color: var(--vp-c-divider);
+  --dp-border-color-hover: var(--vp-c-brand-1);
+  --dp-border-color-focus: var(--vp-c-brand-1);
+  --dp-icon-color: var(--vp-c-text-2);
+  --dp-highlight-color: var(--vp-c-brand-soft);
+  --dp-disabled-color: var(--vp-c-bg-soft);
+  --dp-disabled-color-text: var(--vp-c-text-3);
+  --dp-scroll-bar-background: var(--vp-c-bg-soft);
+  --dp-scroll-bar-color: var(--vp-c-divider);
+}
+
+.dp--menu.dp--menu {
+  background-color: var(--vp-c-bg-elv);
+  box-shadow: var(--vp-shadow-3);
+}
+
+.dp--menu .dp--overlay {
+  background-color: var(--vp-c-bg-elv);
+}

@@ -1,0 +1,106 @@
+:root {
+  --vp-font-family-base: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  /* Tông xanh lá theo logo (dotman.png), điểm nhấn vàng theo dải băng giấy */
+  --vp-c-brand-1: #13804a;
+  --vp-c-brand-2: #189457;
+  --vp-c-brand-3: #1a9a5c;
+  --vp-c-brand-soft: rgba(62, 207, 142, 0.16);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #1fae68 30%, #e9a915);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, rgba(62, 207, 142, 0.55) 50%, rgba(255, 201, 102, 0.45) 50%);
+  --vp-home-hero-image-filter: blur(56px);
+}
+
+.dark {
+  --vp-c-brand-1: #4ee09e;
+  --vp-c-brand-2: #3ecf8e;
+  --vp-c-brand-3: #1f9a5e;
+  --vp-c-brand-soft: rgba(62, 207, 142, 0.16);
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #3ecf8e 30%, #ffc966);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, rgba(62, 207, 142, 0.4) 50%, rgba(255, 201, 102, 0.3) 50%);
+}
+
+/* Trang chủ: khối nội dung markdown bên dưới hero/features */
+.VPHome .home-section {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+
+@media (min-width: 640px) {
+  .VPHome .home-section {
+    padding: 48px 48px 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHome .home-section {
+    padding: 64px 64px 0;
+  }
+}
+
+.VPHome .home-section h2 {
+  margin: 0 0 8px;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.VPHome .home-section > p {
+  margin: 0 0 24px;
+  color: var(--vp-c-text-2);
+}
+
+/* Dòng dẫn tới trang Tính năng, nằm ngay dưới lưới tính năng */
+.VPHome .home-more {
+  padding-top: 32px;
+  text-align: center;
+}
+
+.VPHome .home-more > p {
+  margin: 0;
+}
+
+/* Badge "Premium" trong tiêu đề thẻ tính năng (VitePress hiển thị tiêu đề bằng v-html nên không dùng được component Badge) */
+.VPHome .home-badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background-color: var(--vp-badge-tip-bg);
+  color: var(--vp-badge-tip-text);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+/* Badge trong heading: căn giữa theo chiều dọc với chữ của heading */
+.vp-doc :is(h1, h2, h3, h4, h5, h6) > .VPBadge.VPBadge {
+  margin-top: 0;
+  vertical-align: middle;
+  transform: translateY(-0.12em);
+}
+
+/* Badge "Premium" (type="tip") màu vàng, tách khỏi màu xanh chủ đạo */
+:root {
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: #a16207;
+  --vp-badge-tip-bg: rgba(234, 179, 8, 0.16);
+}
+
+.dark {
+  --vp-badge-tip-text: #facc15;
+  --vp-badge-tip-bg: rgba(234, 179, 8, 0.16);
+}
+
+/* Tiêu đề và đoạn mô tả của mọi khối trên trang chủ căn giữa cho đồng nhất */
+.VPHome .home-section > h2,
+.VPHome .home-section > p {
+  text-align: center;
+}

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// "Bắt đầu trong 4 bước": tóm tắt cách cài đặt, mỗi bước dẫn tới trang hướng dẫn tương ứng.
 import { withBase } from 'vitepress'
 import { ArrowRight } from 'lucide-vue-next'
 

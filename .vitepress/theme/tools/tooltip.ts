@@ -31,7 +31,6 @@ function show(target: HTMLElement) {
   const r = target.getBoundingClientRect()
   const w = el.offsetWidth
   const h = el.offsetHeight
-  // mặc định ở trên, không đủ chỗ thì lật xuống dưới
   let top = r.top - h - GAP
   if (top < MARGIN) {
     top = r.bottom + GAP

@@ -1,5 +1,5 @@
 import { defineAsyncComponent, defineComponent, h, nextTick, onBeforeUnmount, onMounted, watch } from 'vue'
-import { useRoute, type Theme } from 'vitepress'
+import { useData, useRoute, type Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import '@fontsource/be-vietnam-pro/400.css'
 import '@fontsource/be-vietnam-pro/500.css'
@@ -19,6 +19,7 @@ import HomeTrial from './components/HomeTrial.vue'
 import PageActions from './components/PageActions.vue'
 import ReleaseIndex from './components/ReleaseIndex.vue'
 import ReleaseList from './components/ReleaseList.vue'
+import SiteFooter from './components/SiteFooter.vue'
 import ToolIndex from './components/ToolIndex.vue'
 import { setupReveal } from './reveal'
 import './style.css'
@@ -36,10 +37,10 @@ const tools = {
 
 export default {
   extends: DefaultTheme,
-  // chèn lời giới thiệu giữa hero và lưới tính năng của trang chủ
   Layout: defineComponent({
     setup() {
       const route = useRoute()
+      const { frontmatter } = useData()
       let stop = () => {}
       // khối của trang chủ hiện dần khi cuộn tới, theo dõi lại sau mỗi lần chuyển trang
       const start = () => {
@@ -49,7 +50,11 @@ export default {
       onMounted(start)
       watch(() => route.path, () => nextTick(start))
       onBeforeUnmount(() => stop())
-      return () => h(DefaultTheme.Layout, null, { 'home-features-before': () => h(HomeIntro) })
+      return () =>
+        h(DefaultTheme.Layout, null, {
+          'home-features-before': () => h(HomeIntro),
+          'layout-bottom': () => (frontmatter.value.layout === 'home' ? h(SiteFooter) : null),
+        })
     },
   }),
   enhanceApp({ app }) {

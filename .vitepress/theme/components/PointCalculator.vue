@@ -107,7 +107,6 @@ const rows: { label: string; cell: (f: Flow) => string; sub?: (f: Flow) => strin
   { label: 'Tổng nhận được', cell: (f) => fmt(f.total!), cls: 'total' },
 ]
 
-// Cấu hình nâng cao, chia nhóm theo phương thức nạp
 const settings = [
   {
     group: 'Thẻ cào',
@@ -330,7 +329,6 @@ input.big {
   color: var(--vp-c-text-2);
 }
 
-/* danh sách cấu hình: mỗi dòng gồm nhãn + key bên trái, ô nhập bên phải */
 .settings {
   margin-top: 12px;
   border: 1px solid var(--vp-c-divider);

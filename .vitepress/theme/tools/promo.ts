@@ -26,7 +26,6 @@ export interface ParsedPromos {
   entries: PromoEntry[]
 }
 
-/** Thứ trong tuần theo cách gọi của khuyenmai.yml */
 export function dayCode(date: Date): DayCode {
   const d = date.getDay()
   return (d === 0 ? 8 : d + 1) as DayCode
@@ -166,7 +165,6 @@ export function describe(s: Schedule): string {
   return `Lặp lại: ${days}, ${hours}${range ? `; ${range}` : ''}`
 }
 
-// Mã màu Minecraft -> màu hiển thị
 const MC_COLORS: Record<string, string> = {
   '0': '#000000', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA', '4': '#AA0000', '5': '#AA00AA',
   '6': '#FFAA00', '7': '#AAAAAA', '8': '#555555', '9': '#5555FF', a: '#55FF55', b: '#55FFFF',

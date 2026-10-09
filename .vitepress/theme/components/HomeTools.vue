@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Giới thiệu các công cụ trực tuyến miễn phí, lấy danh sách từ .vitepress/tools-list.ts (cùng nguồn với menu và trang Công cụ).
 import { withBase } from 'vitepress'
 import { ArrowRight, Sparkles } from 'lucide-vue-next'
 import { TOOLS } from '../../tools-list'
@@ -58,7 +57,6 @@ import { TOOL_ICONS } from '../tool-icons'
   padding: 20px;
 }
 
-/* ô sắp ra mắt: viền nét đứt, màu nhạt hơn và không phải liên kết */
 .tool-card.soon {
   border-style: dashed;
   background-color: transparent;
@@ -111,7 +109,6 @@ import { TOOL_ICONS } from '../tool-icons'
   margin-top: 40px;
 }
 
-/* cùng kiểu nút phụ (alt) của hero */
 .btn {
   display: inline-flex;
   align-items: center;

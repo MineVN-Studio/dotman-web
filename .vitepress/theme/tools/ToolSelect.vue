@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Dropdown riêng của project, thay cho <select> mặc định của trình duyệt.
 // Hỗ trợ bàn phím: mũi tên, Home/End, Enter hoặc Space để chọn, Esc để đóng.
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { Check, ChevronDown } from 'lucide-vue-next'
@@ -33,7 +32,6 @@ const listId = `tool-select-${Math.random().toString(36).slice(2, 9)}`
 
 async function show() {
   if (props.disabled || open.value) return
-  // đủ chỗ phía dưới thì xổ xuống, không thì xổ lên trên
   const rect = root.value!.getBoundingClientRect()
   const menuHeight = Math.min(MENU_MAX_HEIGHT, props.options.length * 34 + 8)
   above.value = window.innerHeight - rect.bottom < menuHeight + 12 && rect.top > menuHeight + 12
@@ -182,7 +180,6 @@ watch(() => props.disabled, (d) => d && hide())
   transform: rotate(180deg);
 }
 
-/* menu cùng kiểu với bộ chọn ngày giờ: nền nổi, bóng đổ, bo góc */
 .menu {
   position: absolute;
   top: calc(100% + 6px);

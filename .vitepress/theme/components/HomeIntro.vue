@@ -27,7 +27,6 @@
   }
 }
 
-/* chữ thường, không nền như badge */
 .eyebrow {
   display: block;
   margin-bottom: 12px;

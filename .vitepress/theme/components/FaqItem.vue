@@ -81,7 +81,6 @@ summary:focus-visible {
   animation: reveal 0.25s ease-out;
 }
 
-/* nội dung markdown bên trong slot */
 .answer :deep(p) {
   margin: 0;
 }

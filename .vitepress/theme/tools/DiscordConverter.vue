@@ -195,7 +195,6 @@ async function copyPlaceholder(p: string) {
   border-color: var(--vp-c-brand-1);
 }
 
-/* bỏ nền xám và padding của inline code mặc định để chip gọn */
 .chip code {
   padding: 0;
   background: none;

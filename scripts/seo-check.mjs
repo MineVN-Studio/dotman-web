@@ -38,7 +38,6 @@ function walk(dir, ext, skip = () => false) {
   return out
 }
 
-// ---- 1. frontmatter ----
 const titles = new Map()
 const descs = new Map()
 const mdFiles = walk(DOCS, '.md', (name) => name === 'public')
@@ -77,7 +76,6 @@ for (const file of mdFiles) {
   }
 }
 
-// ---- 2. bản build ----
 let built = 0
 if (!fs.existsSync(path.join(DIST, 'sitemap.xml'))) {
   warnings.push('chưa có bản build (.vitepress/dist), bỏ qua phần kiểm tra thẻ trong HTML. Chạy `bun run dw:build` trước.')
@@ -112,7 +110,6 @@ if (!fs.existsSync(path.join(DIST, 'sitemap.xml'))) {
 
     if (!pick(html, /<meta name="description" content="([^"]*)"/)) errors.push(`${rel}: thiếu meta description`)
 
-    // ảnh chia sẻ phải là đường dẫn tuyệt đối và file phải tồn tại trong bản build
     const ogImage = pick(html, /property="og:image" content="([^"]*)"/)
     if (!ogImage) errors.push(`${rel}: thiếu og:image`)
     else if (!ogImage.startsWith(`${SITE}/`)) errors.push(`${rel}: og:image phải là đường dẫn tuyệt đối (${ogImage})`)
@@ -139,7 +136,6 @@ if (!fs.existsSync(path.join(DIST, 'sitemap.xml'))) {
   if (built !== locs.size) warnings.push(`sitemap có ${locs.size} URL nhưng build có ${built} trang`)
 }
 
-// ---- kết quả ----
 console.log(`Frontmatter: ${mdFiles.length} trang`)
 console.log(`Bản build: ${built ? built + ' trang' : 'chưa kiểm tra'}`)
 if (warnings.length) {

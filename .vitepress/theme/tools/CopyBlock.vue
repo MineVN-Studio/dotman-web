@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import { Check, Copy } from 'lucide-vue-next'
 
 const props = defineProps<{
-  /** Nội dung cần hiển thị và sao chép */
   code: string
   /** Tên file hiển thị ở đầu khung, ví dụ mocnap.yml */
   title?: string

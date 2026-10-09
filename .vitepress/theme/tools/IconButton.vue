@@ -3,7 +3,6 @@ import type { Component } from 'vue'
 import { vTip } from './tooltip'
 
 defineProps<{
-  /** Icon từ lucide-vue-next */
   icon: Component
   /** Nội dung tooltip, đồng thời là aria-label */
   tip: string

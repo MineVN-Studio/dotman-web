@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Số liệu thật của DotMan lấy từ bStats (API công khai, cho phép gọi từ trình duyệt).
 // Lỗi mạng hoặc API đổi định dạng thì ẩn cả khu vực, không làm hỏng trang chủ.
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
@@ -9,14 +8,14 @@ const PAGE = `https://bstats.org/plugin/bukkit/DotMan%20-%20Donation%20Manager/$
 
 const DAYS = 30
 const SLOTS_PER_DAY = 48 // bStats ghi số liệu mỗi 30 phút
-const ALL_ELEMENTS = 100000 // đủ để lấy toàn bộ lịch sử
+const ALL_ELEMENTS = 100000
 const POINTS_MONTH = DAYS // mỗi điểm là trung bình một ngày, gom theo ngày để không bị răng cưa do chu kỳ ngày đêm
 const POINTS_ALL = 80
 const TOP = 5
 
 const CACHE_KEY = 'dotman-bstats'
 const CACHE_ALL_KEY = 'dotman-bstats-all'
-const CACHE_MS = 30 * 60 * 1000 // bStats cập nhật mỗi 30 phút
+const CACHE_MS = 30 * 60 * 1000
 
 type Series = [number, number][]
 interface Slice {
@@ -124,7 +123,7 @@ function startCount() {
   const DURATION = 1400
   const tick = (now: number) => {
     const t = Math.min((now - start) / DURATION, 1)
-    count.value = 1 - Math.pow(1 - t, 3) // chậm dần về cuối
+    count.value = 1 - Math.pow(1 - t, 3)
     if (t < 1) requestAnimationFrame(tick)
   }
   requestAnimationFrame(tick)
@@ -161,7 +160,6 @@ watch([visible, status], ([isVisible, s]) => {
   }, 80)
 })
 
-// ---- lịch sử toàn thời gian: chỉ tải khi người xem chọn "Tất cả" ----
 function compact(series: Series): Compact {
   // bStats trả dữ liệu từ lúc đăng ký plugin, phần đầu toàn số 0 nên cắt bỏ để biểu đồ không bị phẳng
   const first = Math.max(series.findIndex((p) => p[1] > 0), 0)
@@ -200,12 +198,10 @@ async function setRange(next: 'month' | 'all') {
   }
 }
 
-// ---- biểu đồ nhỏ ----
 const W = 200
 const H = 56
 const PAD = 4
 
-/** Gom chuỗi dài thành n điểm bằng trung bình từng đoạn */
 function downsample(values: number[], n: number): number[] {
   if (values.length <= n) return values
   const size = values.length / n
@@ -256,7 +252,6 @@ const cards = computed(() => {
   })
 })
 
-// ---- phân bố ----
 function topShare(slices: Slice[], describe: (name: string) => { name: string; tag?: string } = (name) => ({ name })): Row[] {
   const total = slices.reduce((sum, s) => sum + s.y, 0) || 1
   const sorted = [...slices].sort((a, b) => b.y - a.y || a.name.localeCompare(b.name))
@@ -350,7 +345,6 @@ const distributions = computed(() => {
   padding-bottom: 8px;
 }
 
-/* tiêu đề căn giữa như các khối khác, công tắc 30 ngày / Tất cả nằm ngay dưới */
 .head {
   display: flex;
   flex-direction: column;
@@ -450,7 +444,6 @@ const distributions = computed(() => {
   color: var(--vp-c-text-3);
 }
 
-/* biểu đồ nằm ở đáy card, không chiếm chỗ của chữ */
 .stat {
   min-height: 220px;
 }

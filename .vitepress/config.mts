@@ -117,11 +117,10 @@ const sidebar: DefaultTheme.SidebarItem[] = [
 ]
 
 const SITE_NAME = 'DotMan - Donation Manager'
-// ảnh hiện khi chia sẻ link (phải là đường dẫn tuyệt đối), file nằm trong docs/public
+// ảnh khi chia sẻ link, bắt buộc là đường dẫn tuyệt đối
 const SHARE_IMAGE = { url: SITE_URL + '/dotman.png', width: 512, height: 512, alt: 'Logo DotMan' }
 const PUBLISHER = { '@type': 'Organization', name: 'MineVN Studio', url: 'https://minevn.net/studio' }
 
-/** Đường dẫn các cấp của một trang trong sidebar, dùng cho breadcrumb: [{ name, path }] (không gồm trang chủ) */
 function breadcrumbTrail(path: string): { name: string; path: string }[] {
   for (const group of sidebar) {
     if (group.link === path) return [{ name: group.text!, path }]
@@ -135,7 +134,6 @@ function breadcrumbTrail(path: string): { name: string; path: string }[] {
   return []
 }
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   srcDir: 'docs',
   lang: 'vi-VN',
@@ -163,11 +161,9 @@ export default defineConfig({
     plugins: [markdownSourceDevPlugin(SRC_DIR)],
   },
 
-  // Thẻ riêng cho từng trang để link gửi lên Discord, Facebook, Zalo, Google hiển thị đúng tiêu đề và mô tả.
   // Ảnh chia sẻ hiện là logo vuông dotman.png: với twitter:card là summary, Discord và các nơi khác hiện nó dạng ảnh nhỏ (thumbnail) góc phải của embed.
   // Khi có ảnh ngang 1200x630 thì đổi SHARE_IMAGE và twitter:card thành summary_large_image để ảnh hiện lớn bên dưới.
   transformHead({ pageData, description }) {
-    // trang lỗi 404 không được lập chỉ mục
     if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex, nofollow' }]]
 
     // index.md thành thư mục gốc, còn lại bỏ đuôi .md (cleanUrls): huong-dan/cai-dat.md thành /huong-dan/cai-dat
@@ -179,7 +175,6 @@ export default defineConfig({
 
     const structured: HeadConfig[] = []
     if (isHome) {
-      // dữ liệu có cấu trúc của trang chủ: tên site, ngôn ngữ và đơn vị phát hành
       structured.push(
         ldJson({
           '@context': 'https://schema.org',
@@ -192,7 +187,6 @@ export default defineConfig({
         }),
       )
     } else {
-      // breadcrumb (DotMan > Nhóm > Trang) để Google hiện đường dẫn thay cho URL thô trong kết quả tìm kiếm
       const trail = breadcrumbTrail(path)
       if (trail.length) {
         const items = [{ name: 'DotMan', path: '/' }, ...trail]
@@ -251,7 +245,6 @@ export default defineConfig({
   },
 
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     logo: '/dotman.png',
     siteTitle: 'DotMan',
 

@@ -22,10 +22,8 @@ khuyen-mai:
   hours: '22:00-02:00'
 `
 
-/** Nội dung khuyenmai.yml đang được kiểm tra */
 export const checkerSource = ref(CHECKER_SAMPLE)
 
 export type PromoTab = 'create' | 'check'
 
-/** Tab đang mở trên trang Tạo & kiểm tra lịch khuyến mãi */
 export const activeTab = ref<PromoTab>('create')

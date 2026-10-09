@@ -62,7 +62,6 @@ useSessionState('promo-builder', { drafts, legacyName }, () => {
   nextId = Math.max(nextId, ...drafts.value.map((d) => d.id + 1))
 })
 
-// ---- chuyển đổi ----
 /** 2026-09-01T23:59:59 -> 01/09/2026 23:59:59 (bỏ giây nếu = 00) */
 function toConfigTime(v: string) {
   const m = v.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/)
@@ -132,7 +131,6 @@ const output = computed(() => {
   return out.join('\n') + '\n'
 })
 
-// ---- kiểm tra bằng đúng logic của plugin ----
 const checked = computed(() => {
   try {
     return parsePromos(parse(output.value)).entries
@@ -140,7 +138,6 @@ const checked = computed(() => {
     return []
   }
 })
-/** Lỗi và mô tả lịch của từng mục trong form */
 function statusOf(index: number) {
   const parts = items.value
     .map((it, i) => ({ it, entry: checked.value[i] }))
@@ -150,7 +147,6 @@ function statusOf(index: number) {
   return { errors, descriptions, split: parts.length > 1 }
 }
 
-// ---- thao tác ----
 function toggleDay(d: Draft, day: DayCode) {
   d.days = d.days.includes(day) ? d.days.filter((x) => x !== day) : [...d.days, day]
 }
@@ -302,7 +298,6 @@ async function sendToChecker() {
   gap: 8px 16px;
 }
 
-/* thứ trong tuần và khung giờ nằm cùng hàng khi đủ chỗ */
 .schedule {
   display: flex;
   flex-wrap: wrap;

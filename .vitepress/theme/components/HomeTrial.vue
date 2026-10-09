@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Banner quảng bá chương trình dùng thử DotMan Premium 14 ngày, nằm giữa lưới tính năng và khu vực số liệu của trang chủ.
 const DISCORD = 'https://minevn.net/studio'
 const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng thử', 'Dùng thử 14 ngày']
 </script>
@@ -7,8 +6,6 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
 <template>
   <section id="dung-thu" class="home-section home-trial" aria-labelledby="home-trial-title">
     <div class="panel">
-      <div class="glow" aria-hidden="true" />
-
       <div class="days" aria-hidden="true">
         <span class="free">Miễn phí</span>
         <span class="num home-grad-text">14</span>
@@ -52,32 +49,9 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
   align-items: center;
   gap: 28px;
   padding: 28px 24px;
-  overflow: hidden;
   border: 1px solid var(--vp-c-brand-soft);
   border-radius: 20px;
   background-color: var(--vp-c-bg-soft);
-}
-
-/* viền sáng lên rồi dịu xuống như đang thở.
-   Lớp phủ đã vẽ sẵn viền và ánh sáng bên trong, chỉ đổi độ trong suốt (chạy trên GPU);
-   animate trực tiếp box-shadow, border-color sẽ buộc vẽ lại cả khối mỗi khung hình. */
-.panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(var(--home-glow-a, 62, 207, 142), 0.5);
-  border-radius: inherit;
-  box-shadow: inset 0 0 56px -18px rgba(var(--home-glow-a, 62, 207, 142), 0.4);
-  opacity: 0;
-  pointer-events: none;
-  animation: panel-glow 7s ease-in-out infinite;
-  will-change: opacity;
-}
-
-@keyframes panel-glow {
-  50% {
-    opacity: 1;
-  }
 }
 
 @media (min-width: 720px) {
@@ -85,52 +59,6 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
     grid-template-columns: 190px minmax(0, 1fr);
     gap: 32px;
     padding: 40px;
-  }
-}
-
-/* hai quầng sáng xanh - vàng trôi chậm phía sau, cùng tông với ảnh hero và nền trang chủ */
-.glow {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.glow::before,
-.glow::after {
-  content: '';
-  position: absolute;
-  aspect-ratio: 1;
-  border-radius: 50%;
-}
-
-.glow::before {
-  will-change: transform;
-  top: -45%;
-  left: -8%;
-  width: 62%;
-  background: radial-gradient(closest-side, rgba(var(--home-glow-a, 62, 207, 142), 0.26), transparent);
-  animation: glow-a 14s ease-in-out infinite alternate;
-}
-
-.glow::after {
-  will-change: transform;
-  right: -10%;
-  bottom: -60%;
-  width: 56%;
-  background: radial-gradient(closest-side, rgba(var(--home-glow-b, 255, 201, 102), 0.2), transparent);
-  animation: glow-b 17s ease-in-out infinite alternate;
-}
-
-@keyframes glow-a {
-  to {
-    transform: translate3d(26%, 22%, 0) scale(1.15);
-  }
-}
-
-@keyframes glow-b {
-  to {
-    transform: translate3d(-24%, -18%, 0) scale(1.12);
   }
 }
 
@@ -196,18 +124,12 @@ h2 {
   color: var(--vp-c-brand-1);
 }
 
-/* nút đăng ký tỏa sáng nhẹ khi rê chuột */
 .btn {
-  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-}
-
-.btn.brand:hover {
-  box-shadow: 0 10px 28px -10px rgba(var(--home-glow-a, 62, 207, 142), 0.7);
 }
 
 .body p {
@@ -261,7 +183,6 @@ h2 {
   margin-top: 24px;
 }
 
-/* cùng kiểu với các nút ở hero (màu lấy từ biến của VitePress) */
 .btn {
   display: inline-block;
   padding: 0 20px;
@@ -297,31 +218,7 @@ h2 {
   color: var(--vp-button-alt-hover-text);
 }
 
-/* điện thoại: bỏ chuyển động chạy mãi cho máy yếu đỡ giật */
-@media (max-width: 767px) {
-  .panel::after,
-  .glow::before,
-  .glow::after {
-    animation: none;
-    will-change: auto;
-  }
-
-  .panel::after {
-    opacity: 0.6;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .panel::after,
-  .glow::before,
-  .glow::after {
-    animation: none;
-  }
-
-  .panel::after {
-    opacity: 0.6;
-  }
-
   .btn,
   .btn:hover {
     transition: none;

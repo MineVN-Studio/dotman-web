@@ -56,7 +56,6 @@
   color: var(--vp-c-text-2);
 }
 
-/* Dòng dẫn tới trang Tính năng, nằm ngay dưới lưới tính năng */
 .VPHome .home-more {
   padding-top: 32px;
   text-align: center;
@@ -99,7 +98,6 @@
   --vp-badge-tip-bg: rgba(234, 179, 8, 0.16);
 }
 
-/* Tiêu đề và đoạn mô tả của mọi khối trên trang chủ căn giữa cho đồng nhất */
 .VPHome .home-section > h2,
 .VPHome .home-section > p {
   text-align: center;

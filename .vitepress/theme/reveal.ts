@@ -1,4 +1,3 @@
-// Cho các khối của trang chủ hiện dần khi cuộn tới (CSS ở home.css, lớp .reveal và .is-in).
 // Lớp .reveal chỉ được thêm bằng JavaScript và bỏ qua khối đã nằm trong màn hình lúc tải,
 // nên khi chưa chạy JS hoặc bật giảm chuyển động thì nội dung vẫn hiện bình thường, không bị nháy.
 
@@ -26,7 +25,6 @@ const TARGETS: Target[] = [
   { selector: '.VPHome .home-outro .actions', step: 0, per: 1 },
 ]
 
-/** Bắt đầu theo dõi trang chủ, trả về hàm dọn dẹp. */
 export function setupReveal(): () => void {
   if (typeof IntersectionObserver === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return () => {}

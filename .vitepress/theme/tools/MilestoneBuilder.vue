@@ -101,7 +101,6 @@ function move<T>(list: T[], i: number, delta: number) {
 
 const typeValue = (m: Milestone) => (m.type === 'frame' ? `frame-${m.frameId.trim()}` : m.type)
 
-// ---- xuất YAML ----
 function milestoneYaml(key: 'mocnap' | 'mocnaptong', list: Milestone[]) {
   const out = [`${key}:`]
   list.forEach((m, i) => {
@@ -145,7 +144,6 @@ const output = computed(() => {
   return topYaml()
 })
 
-// ---- kiểm tra lỗi ----
 const issues = computed(() => {
   const out: { level: 'error' | 'warn'; text: string }[] = []
   const checkCommands = (where: string, text: string) => {
@@ -190,7 +188,6 @@ const issues = computed(() => {
   return out
 })
 
-// ---- nhập từ file đang có ----
 const importText = ref('')
 const importError = ref('')
 useSessionState('milestone-builder', { tab, personal, server, top, importText }, () => {
@@ -243,7 +240,6 @@ const currentFile = computed(() => TABS.find((t) => t.value === tab.value)!.file
       </button>
     </div>
 
-    <!-- mốc nạp cá nhân / tổng -->
     <template v-if="tab !== 'phanthuongtop'">
       <div v-for="(m, i) in milestones" :key="m.id" class="tool-panel item">
         <div class="item-head">
@@ -298,7 +294,6 @@ const currentFile = computed(() => TABS.find((t) => t.value === tab.value)!.file
       </div>
     </template>
 
-    <!-- phần thưởng top -->
     <template v-else>
       <div v-for="s in TOP_SECTIONS" :key="s.key" class="tool-panel">
         <div class="item-head">

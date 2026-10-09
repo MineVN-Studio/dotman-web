@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// Bảng giá và so sánh nhanh bản miễn phí với Premium. Nội dung lấy theo bảng so sánh ở trang Tính năng,
-// nếu phân chia tính năng hoặc giá thay đổi thì sửa cả hai nơi.
+// Nội dung lấy theo bảng so sánh ở trang Tính năng: phân chia tính năng hoặc giá thay đổi thì sửa cả hai nơi.
 import { withBase } from 'vitepress'
 import { ArrowRight, Check } from 'lucide-vue-next'
 
@@ -91,14 +90,8 @@ const PREMIUM = [
   padding: 28px 26px 26px;
 }
 
-/* thẻ Premium nổi bật bằng viền và quầng sáng xanh - vàng tĩnh */
 .plan.premium {
   border-color: var(--vp-c-brand-1);
-  background:
-    radial-gradient(420px 220px at 100% 0%, rgba(var(--home-glow-b, 255, 201, 102), 0.14), transparent 70%),
-    radial-gradient(420px 220px at 0% 0%, rgba(var(--home-glow-a, 62, 207, 142), 0.14), transparent 70%),
-    var(--vp-c-bg-soft);
-  box-shadow: 0 18px 48px -28px rgba(var(--home-glow-a, 62, 207, 142), 0.55);
 }
 
 .ribbon {
@@ -196,8 +189,7 @@ const PREMIUM = [
   line-height: 38px;
   text-align: center;
   text-decoration: none;
-  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s var(--home-ease, ease),
-    box-shadow 0.3s var(--home-ease, ease);
+  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s var(--home-ease, ease);
 }
 
 .btn:hover {
@@ -214,7 +206,6 @@ const PREMIUM = [
   border-color: var(--vp-button-brand-hover-border);
   background-color: var(--vp-button-brand-hover-bg);
   color: var(--vp-button-brand-hover-text);
-  box-shadow: 0 10px 28px -10px rgba(var(--home-glow-a, 62, 207, 142), 0.7);
 }
 
 .btn.alt {

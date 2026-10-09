@@ -3,10 +3,6 @@ import path from 'node:path'
 import type { Plugin } from 'vite'
 import type { MarkdownRenderer } from 'vitepress'
 
-/**
- * Chuyển nội dung markdown của trang sang dạng dễ đọc cho người và AI:
- * bỏ comment HTML, thay component Badge bằng chữ.
- */
 export function toPlainMarkdown(src: string) {
   return src
     .replace(/<!--[\s\S]*?-->\n*/g, '')
@@ -16,7 +12,6 @@ export function toPlainMarkdown(src: string) {
 /** Trang công cụ là form tương tác, trang Releases là danh sách lấy từ GitHub, đều không cần nút sao chép markdown / mở bằng AI */
 const NO_PAGE_ACTIONS = /^(cong-cu|releases)\//
 
-/** Chèn nút thao tác trang (sao chép markdown, mở bằng AI...) ngay sau tiêu đề h1 */
 export function pageActionsPlugin(md: MarkdownRenderer) {
   md.core.ruler.push('dotman_page_actions', (state) => {
     if (NO_PAGE_ACTIONS.test(state.env?.relativePath ?? '')) return
@@ -29,7 +24,6 @@ export function pageActionsPlugin(md: MarkdownRenderer) {
   })
 }
 
-/** Dev server: trả về markdown gốc khi request có query `?dotman-md` */
 export function markdownSourceDevPlugin(srcDir: string): Plugin {
   return {
     name: 'dotman-markdown-source',
@@ -49,7 +43,6 @@ export function markdownSourceDevPlugin(srcDir: string): Plugin {
   }
 }
 
-/** Build: chép markdown gốc của mọi trang vào thư mục output, cùng đường dẫn với trang */
 export function writeMarkdownSources(srcDir: string, outDir: string, pages: string[]) {
   for (const page of pages) {
     const out = path.join(outDir, page)

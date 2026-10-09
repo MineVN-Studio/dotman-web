@@ -15,7 +15,6 @@ import { vTip } from './tooltip'
 // nội dung dùng chung với phần Tạo lịch khuyến mãi
 const source = computed({ get: () => checkerSource.value, set: (v: string) => (checkerSource.value = v) })
 
-// màu phân biệt từng khuyến mãi trên lịch
 const PALETTE = ['#3ecf8e', '#f5a524', '#a78bfa', '#38bdf8', '#f472b6', '#facc15', '#fb7185', '#34d399', '#60a5fa', '#c084fc']
 
 const SLOT_MINUTES = 30
@@ -32,7 +31,6 @@ const entries = computed(() => parsed.value.result.entries)
 const valid = computed(() => entries.value.filter((e) => !e.error))
 const colorOf = (e: PromoEntry) => PALETTE[valid.value.indexOf(e) % PALETTE.length]
 
-// ---- thời điểm đang xem: quyết định kết quả áp dụng và tuần hiển thị trên lịch ----
 const pad = (n: number) => String(n).padStart(2, '0')
 const toLocalInput = (d: Date) =>
   `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00`
@@ -69,7 +67,6 @@ function shiftWeek(delta: number) {
   d.setDate(d.getDate() + delta * 7)
   at.value = toLocalInput(d)
 }
-/** bấm vào một ô trên lịch để xem chi tiết thời điểm đó */
 function pickSlot(dayIndex: number, slot: number) {
   const s = weekStart.value
   at.value = toLocalInput(new Date(s.getFullYear(), s.getMonth(), s.getDate() + dayIndex, 0, slot * SLOT_MINUTES))
@@ -363,7 +360,6 @@ const percent = (e: PromoEntry) => `+${Math.round(e.rate! * 100)}%`
   background-color: var(--vp-c-default-2);
 }
 
-/* ô chứa thời điểm đang xem */
 .slot.current {
   z-index: 1;
   outline: 2px solid var(--vp-c-text-1);

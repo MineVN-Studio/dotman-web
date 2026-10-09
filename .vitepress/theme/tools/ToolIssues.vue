@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Card cảnh báo dùng chung: một card duy nhất chứa mọi cảnh báo, mỗi cảnh báo là một dòng trong danh sách có dấu chấm.
 export interface Issue {
   /** error: dấu chấm đỏ, mặc định (warn): dấu chấm vàng */
   level?: 'warn' | 'error'

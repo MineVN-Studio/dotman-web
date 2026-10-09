@@ -1,72 +1,18 @@
-/* Trang chủ: ánh sáng nền, chuyển động nhẹ và dải màu xanh - vàng của DotMan.
-   Chỉ animate transform, opacity, translate, scale và background-position để mượt, nhẹ máy.
+/* Chỉ animate transform, opacity, translate, scale để mượt, nhẹ máy.
    Mọi chuyển động tắt khi người dùng bật "giảm chuyển động" (cuối file). */
 
 :root {
-  /* hai màu của dải gradient, kèm dạng r,g,b để dùng với độ trong suốt */
   --home-a: #1fae68;
   --home-b: #e9a915;
-  --home-glow-a: 31, 174, 104;
-  --home-glow-b: 233, 169, 21;
   --home-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
   --home-a: #3ecf8e;
   --home-b: #ffc966;
-  --home-glow-a: 62, 207, 142;
-  --home-glow-b: 255, 201, 102;
 }
 
-/* ---- ánh sáng nền: hai quầng sáng trôi rất chậm phía sau toàn trang chủ ---- */
-.VPHome {
-  position: relative;
-  isolation: isolate;
-  overflow-x: clip;
-}
-
-.VPHome::before,
-.VPHome::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  pointer-events: none;
-  /* tách thành lớp riêng trên GPU: chỉ dịch chuyển lớp đã vẽ sẵn, không vẽ lại gradient mỗi khung hình */
-  will-change: transform;
-}
-
-.VPHome::before {
-  top: -180px;
-  left: -12%;
-  width: min(70vw, 900px);
-  background: radial-gradient(closest-side, rgba(var(--home-glow-a), 0.18), transparent);
-  animation: home-drift-a 24s ease-in-out infinite alternate;
-}
-
-.VPHome::after {
-  top: 60px;
-  right: -14%;
-  width: min(60vw, 760px);
-  background: radial-gradient(closest-side, rgba(var(--home-glow-b), 0.14), transparent);
-  animation: home-drift-b 30s ease-in-out infinite alternate;
-}
-
-@keyframes home-drift-a {
-  to {
-    transform: translate3d(9%, 14%, 0) scale(1.12);
-  }
-}
-
-@keyframes home-drift-b {
-  to {
-    transform: translate3d(-11%, 12%, 0) scale(1.1);
-  }
-}
-
-/* ---- chữ gradient: dải xanh - vàng ----
-   Chữ cắt theo nền (background-clip: text) buộc vẽ lại mỗi khung hình khi animate,
+/* Chữ cắt theo nền (background-clip: text) buộc vẽ lại mỗi khung hình khi animate,
    nên gradient để tĩnh; riêng tên DotMan ở hero chạy ánh sáng đúng một lần lúc tải trang. */
 .VPHero .name.clip,
 .home-grad-text {
@@ -91,7 +37,6 @@
   }
 }
 
-/* ---- hero: chữ trượt lên lần lượt, ảnh hiện ra rồi lơ lửng nhẹ ---- */
 .VPHero .heading,
 .VPHero .tagline,
 .VPHero .actions {
@@ -114,13 +59,6 @@
 .VPHero .image-src {
   animation: home-float 7s ease-in-out infinite;
   will-change: translate;
-}
-
-/* quầng sáng sau ảnh phập phồng nhẹ */
-/* phần tử này có blur(56px): phải tách thành lớp riêng để chỉ phóng to lớp đã làm mờ sẵn, không làm mờ lại mỗi khung hình */
-.VPHero .image-bg {
-  animation: home-breathe 8s ease-in-out infinite;
-  will-change: scale, opacity;
 }
 
 @keyframes home-rise {
@@ -153,52 +91,20 @@
   }
 }
 
-@keyframes home-breathe {
-  50% {
-    scale: 1.12;
-    opacity: 0.8;
-  }
-}
-
-/* nút ở hero: nổi lên và tỏa sáng nhẹ khi rê chuột */
 .VPHero .VPButton {
-  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s var(--home-ease),
-    box-shadow 0.3s var(--home-ease);
+  transition: color 0.25s, border-color 0.25s, background-color 0.25s, transform 0.3s var(--home-ease);
 }
 
 .VPHero .VPButton:hover {
   transform: translateY(-2px);
 }
 
-.VPHero .VPButton.brand:hover {
-  box-shadow: 0 10px 28px -10px rgba(var(--home-glow-a), 0.7);
-}
-
-/* ---- thẻ tính năng: nổi lên, viền sáng và quầng sáng từ góc trên khi rê chuột ---- */
 .VPHome .VPFeature {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.35s var(--home-ease), box-shadow 0.35s var(--home-ease), border-color 0.25s,
-    background-color 0.25s;
-}
-
-.VPHome .VPFeature::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(360px 170px at 0% 0%, rgba(var(--home-glow-a), 0.18), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s;
-  pointer-events: none;
+  transition: transform 0.35s var(--home-ease), border-color 0.25s, background-color 0.25s;
 }
 
 .VPHome .VPFeature:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -20px rgba(var(--home-glow-a), 0.55);
-}
-
-.VPHome .VPFeature:hover::before {
-  opacity: 1;
 }
 
 .VPHome .VPFeature .icon {
@@ -209,13 +115,11 @@
   transform: translateY(-1px) scale(1.1) rotate(-4deg);
 }
 
-/* ---- thẻ dùng chung cho các khối của trang chủ (cổng thanh toán, các bước, công cụ, bảng giá) ----
-   Thẻ là liên kết (a.home-card) thì nổi lên và sáng viền khi rê chuột. */
 .home-card {
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
   background-color: var(--vp-c-bg-soft);
-  transition: transform 0.35s var(--home-ease), box-shadow 0.35s var(--home-ease), border-color 0.25s;
+  transition: transform 0.35s var(--home-ease), border-color 0.25s;
 }
 
 a.home-card {
@@ -227,10 +131,8 @@ a.home-card {
 a.home-card:hover {
   transform: translateY(-3px);
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 16px 36px -20px rgba(var(--home-glow-a), 0.5);
 }
 
-/* nhãn Premium dùng chung (cùng kiểu với badge ở thẻ tính năng) */
 .home-tag {
   display: inline-block;
   padding: 0 8px;
@@ -243,7 +145,7 @@ a.home-card:hover {
   vertical-align: middle;
 }
 
-/* ---- hiện dần khi cuộn tới (lớp .reveal / .is-in do theme/reveal.ts thêm vào) ---- */
+/* .reveal và .is-in do reveal.ts thêm vào */
 .reveal {
   opacity: 0;
 }
@@ -265,29 +167,21 @@ a.home-card:hover {
   }
 }
 
-/* ---- điện thoại: bỏ các chuyển động chạy mãi, giữ ánh sáng tĩnh để máy yếu không giật ---- */
+/* điện thoại: bỏ chuyển động chạy mãi để máy yếu không giật */
 @media (max-width: 767px) {
-  .VPHome::before,
-  .VPHome::after,
-  .VPHero .image-src,
-  .VPHero .image-bg {
+  .VPHero .image-src {
     animation: none;
     will-change: auto;
   }
 }
 
-/* ---- giảm chuyển động: giữ màu và bố cục, bỏ mọi animation ---- */
 @media (prefers-reduced-motion: reduce) {
-  .VPHome::before,
-  .VPHome::after,
   .VPHero .name.clip,
-  .home-grad-text,
   .VPHero .heading,
   .VPHero .tagline,
   .VPHero .actions,
   .VPHero .image-container,
-  .VPHero .image-src,
-  .VPHero .image-bg {
+  .VPHero .image-src {
     animation: none;
   }
 
@@ -314,4 +208,9 @@ a.home-card:hover {
   .home-card {
     transition: none;
   }
+}
+
+/* VitePress chừa 96px đến 128px dưới cùng trang chủ cho footer mặc định, footer của site đã tự có khoảng đệm */
+.VPContent .VPHome.VPHome {
+  margin-bottom: 0;
 }

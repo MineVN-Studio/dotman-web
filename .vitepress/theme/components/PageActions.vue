@@ -8,7 +8,7 @@ const copied = ref(false)
 const menuOpen = ref(false)
 const root = ref<HTMLElement>()
 
-// File markdown gốc được phục vụ cùng đường dẫn với trang, ví dụ /huong-dan/cai-dat.md
+// File markdown gốc được phục vụ cùng đường dẫn với trang, ví dụ /docs/huong-dan/cai-dat.md
 const markdownPath = computed(() => '/' + page.value.relativePath)
 
 function markdownUrl() {

@@ -24,75 +24,75 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     text: 'Bắt đầu',
     collapsed: false,
     items: [
-      { text: 'Giới thiệu', link: '/huong-dan/gioi-thieu' },
-      { text: 'Tính năng', link: '/huong-dan/tinh-nang' },
-      { text: 'Cài đặt', link: '/huong-dan/cai-dat' },
-      { text: 'Cấu hình chung', link: '/huong-dan/cau-hinh-chung' },
+      { text: 'Giới thiệu', link: '/docs' },
+      { text: 'Tính năng', link: '/docs/huong-dan/tinh-nang' },
+      { text: 'Cài đặt', link: '/docs/huong-dan/cai-dat' },
+      { text: 'Cấu hình chung', link: '/docs/huong-dan/cau-hinh-chung' },
     ],
   },
   {
     text: 'Releases',
-    link: '/releases/',
+    link: '/docs/releases/',
     collapsed: false,
     items: [
-      { text: 'DotMan', link: '/releases/dotman' },
-      { text: 'MineVNLib', link: '/releases/minevnlib' },
+      { text: 'DotMan', link: '/docs/releases/dotman' },
+      { text: 'MineVNLib', link: '/docs/releases/minevnlib' },
     ],
   },
   {
     text: 'Nạp tiền',
     collapsed: false,
     items: [
-      { text: 'Nạp thẻ cào', link: '/nap-tien/the-cao' },
-      { text: 'Chuyển khoản ngân hàng', link: '/nap-tien/ngan-hang' },
-      { text: 'Nạp thủ công', link: '/nap-tien/thu-cong' },
+      { text: 'Nạp thẻ cào', link: '/docs/nap-tien/the-cao' },
+      { text: 'Chuyển khoản ngân hàng', link: '/docs/nap-tien/ngan-hang' },
+      { text: 'Nạp thủ công', link: '/docs/nap-tien/thu-cong' },
     ],
   },
   {
     text: 'Khuyến mãi',
     collapsed: false,
     items: [
-      { text: 'Lịch khuyến mãi', link: '/khuyen-mai/lich-khuyen-mai' },
-      { text: 'Thông báo khuyến mãi', link: '/khuyen-mai/thong-bao' },
-      { text: 'Khuyến mãi nạp lần đầu', link: '/khuyen-mai/nap-lan-dau' },
+      { text: 'Lịch khuyến mãi', link: '/docs/khuyen-mai/lich-khuyen-mai' },
+      { text: 'Thông báo khuyến mãi', link: '/docs/khuyen-mai/thong-bao' },
+      { text: 'Khuyến mãi nạp lần đầu', link: '/docs/khuyen-mai/nap-lan-dau' },
     ],
   },
   {
     text: 'Mốc nạp & top nạp',
     collapsed: false,
     items: [
-      { text: 'Mốc nạp cá nhân', link: '/phan-thuong/moc-nap-ca-nhan' },
-      { text: 'Mốc nạp tổng server', link: '/phan-thuong/moc-nap-tong' },
-      { text: 'Top nạp', link: '/phan-thuong/top-nap' },
-      { text: 'Phần thưởng top nạp', link: '/phan-thuong/phan-thuong-top' },
-      { text: 'Khung thời gian', link: '/phan-thuong/khung-thoi-gian' },
+      { text: 'Mốc nạp cá nhân', link: '/docs/phan-thuong/moc-nap-ca-nhan' },
+      { text: 'Mốc nạp tổng server', link: '/docs/phan-thuong/moc-nap-tong' },
+      { text: 'Top nạp', link: '/docs/phan-thuong/top-nap' },
+      { text: 'Phần thưởng top nạp', link: '/docs/phan-thuong/phan-thuong-top' },
+      { text: 'Khung thời gian', link: '/docs/phan-thuong/khung-thoi-gian' },
     ],
   },
   {
     text: 'Quản trị',
     collapsed: false,
     items: [
-      { text: 'Bảo mật cấu hình', link: '/quan-tri/bao-mat-cau-hinh' },
-      { text: 'Lịch sử và thống kê', link: '/quan-tri/lich-su-va-thong-ke' },
-      { text: 'Lệnh thưởng khi offline', link: '/quan-tri/lenh-thuong-offline' },
+      { text: 'Bảo mật cấu hình', link: '/docs/quan-tri/bao-mat-cau-hinh' },
+      { text: 'Lịch sử và thống kê', link: '/docs/quan-tri/lich-su-va-thong-ke' },
+      { text: 'Lệnh thưởng khi offline', link: '/docs/quan-tri/lenh-thuong-offline' },
     ],
   },
   {
     text: 'Tích hợp',
     collapsed: false,
-    items: [{ text: 'Discord Webhook', link: '/tich-hop/discord-webhook' }],
+    items: [{ text: 'Discord Webhook', link: '/docs/tich-hop/discord-webhook' }],
   },
   {
     text: 'Tham khảo',
     collapsed: false,
     items: [
-      { text: 'Lệnh & permission', link: '/tham-khao/danh-sach-lenh-va-permission' },
-      { text: 'Placeholder API', link: '/tham-khao/placeholder-api' },
+      { text: 'Lệnh & permission', link: '/docs/tham-khao/danh-sach-lenh-va-permission' },
+      { text: 'Placeholder API', link: '/docs/tham-khao/placeholder-api' },
     ],
   },
   {
     text: 'Công cụ',
-    link: '/cong-cu/',
+    link: '/docs/cong-cu/',
     collapsed: false,
     items: TOOLS.map(({ text, link }) => ({ text, link })),
   },
@@ -100,18 +100,18 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     text: 'Config mẫu',
     collapsed: true,
     items: [
-      { text: 'config.yml', link: '/config-mau/config-yml' },
-      { text: 'messages.yml', link: '/config-mau/messages-yml' },
-      { text: 'banking.yml', link: '/config-mau/banking-yml' },
-      { text: 'providers/banking/*.yml', link: '/config-mau/providers-ngan-hang' },
-      { text: 'providers/*.yml', link: '/config-mau/providers-the-cao' },
-      { text: 'khuyenmai.yml', link: '/config-mau/khuyenmai-yml' },
-      { text: 'mocnap.yml', link: '/config-mau/mocnap-yml' },
-      { text: 'mocnaptong.yml', link: '/config-mau/mocnaptong-yml' },
-      { text: 'phanthuongtop.yml', link: '/config-mau/phanthuongtop-yml' },
-      { text: 'khungthoigian.yml', link: '/config-mau/khungthoigian-yml' },
-      { text: 'discord.yml', link: '/config-mau/discord-yml' },
-      { text: 'menu/*.yml', link: '/config-mau/menu' },
+      { text: 'config.yml', link: '/docs/config-mau/config-yml' },
+      { text: 'messages.yml', link: '/docs/config-mau/messages-yml' },
+      { text: 'banking.yml', link: '/docs/config-mau/banking-yml' },
+      { text: 'providers/banking/*.yml', link: '/docs/config-mau/providers-ngan-hang' },
+      { text: 'providers/*.yml', link: '/docs/config-mau/providers-the-cao' },
+      { text: 'khuyenmai.yml', link: '/docs/config-mau/khuyenmai-yml' },
+      { text: 'mocnap.yml', link: '/docs/config-mau/mocnap-yml' },
+      { text: 'mocnaptong.yml', link: '/docs/config-mau/mocnaptong-yml' },
+      { text: 'phanthuongtop.yml', link: '/docs/config-mau/phanthuongtop-yml' },
+      { text: 'khungthoigian.yml', link: '/docs/config-mau/khungthoigian-yml' },
+      { text: 'discord.yml', link: '/docs/config-mau/discord-yml' },
+      { text: 'menu/*.yml', link: '/docs/config-mau/menu' },
     ],
   },
 ]
@@ -166,7 +166,7 @@ export default defineConfig({
   transformHead({ pageData, description }) {
     if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex, nofollow' }]]
 
-    // index.md thành thư mục gốc, còn lại bỏ đuôi .md (cleanUrls): huong-dan/cai-dat.md thành /huong-dan/cai-dat
+    // index.md thành thư mục gốc, còn lại bỏ đuôi .md (cleanUrls): docs/huong-dan/cai-dat.md thành /docs/huong-dan/cai-dat
     const path = '/' + pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
     const url = SITE_URL + path
 
@@ -251,15 +251,15 @@ export default defineConfig({
     nav: [
       {
         text: 'Hướng dẫn',
-        link: '/huong-dan/gioi-thieu',
-        activeMatch: '^/(huong-dan|nap-tien|khuyen-mai|phan-thuong|tich-hop|quan-tri)/',
+        link: '/docs',
+        activeMatch: '^/docs($|/(huong-dan|nap-tien|khuyen-mai|phan-thuong|tich-hop|quan-tri)/)',
       },
-      { text: 'Lệnh & permission', link: '/tham-khao/danh-sach-lenh-va-permission', activeMatch: '^/tham-khao/' },
-      { text: 'Releases', link: '/releases/', activeMatch: '^/releases/' },
+      { text: 'Lệnh & permission', link: '/docs/tham-khao/danh-sach-lenh-va-permission', activeMatch: '^/docs/tham-khao/' },
+      { text: 'Releases', link: '/docs/releases/', activeMatch: '^/docs/releases/' },
       {
         text: 'Công cụ',
         items: [
-          { text: 'Tất cả công cụ', link: '/cong-cu/' },
+          { text: 'Tất cả công cụ', link: '/docs/cong-cu/' },
           { items: TOOLS.map(({ text, link }) => ({ text, link })) },
         ],
       },

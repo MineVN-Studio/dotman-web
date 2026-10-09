@@ -3,7 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 // API nội bộ của VitePress: danh sách callback đăng ký qua onContentUpdated (mục lục bên phải dùng nó)
 import { contentUpdatedCallbacks } from 'vitepress/dist/client/app/utils.js'
 import { getScrollOffset } from 'vitepress'
-import { data } from '../../../docs/releases/releases.data'
+import { data } from '../../../docs/docs/releases/releases.data'
 
 type Channel = 'stable' | 'beta' | 'all'
 

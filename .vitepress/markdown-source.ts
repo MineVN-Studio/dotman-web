@@ -10,7 +10,7 @@ export function toPlainMarkdown(src: string) {
 }
 
 /** Trang công cụ là form tương tác, trang Releases là danh sách lấy từ GitHub, đều không cần nút sao chép markdown / mở bằng AI */
-const NO_PAGE_ACTIONS = /^(cong-cu|releases)\//
+const NO_PAGE_ACTIONS = /^docs\/(cong-cu|releases)\//
 
 export function pageActionsPlugin(md: MarkdownRenderer) {
   md.core.ruler.push('dotman_page_actions', (state) => {

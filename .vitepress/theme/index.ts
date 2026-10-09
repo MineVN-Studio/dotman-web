@@ -22,6 +22,7 @@ import ReleaseList from './components/ReleaseList.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import ToolIndex from './components/ToolIndex.vue'
 import { setupReveal } from './reveal'
+import { setupSmoothScroll } from './smooth-scroll'
 import './style.css'
 import './home.css'
 import './tools.css'
@@ -47,9 +48,16 @@ export default {
         stop()
         stop = route.path === '/' ? setupReveal() : () => {}
       }
-      onMounted(start)
+      let stopSmooth = () => {}
+      onMounted(() => {
+        start()
+        stopSmooth = setupSmoothScroll()
+      })
       watch(() => route.path, () => nextTick(start))
-      onBeforeUnmount(() => stop())
+      onBeforeUnmount(() => {
+        stop()
+        stopSmooth()
+      })
       return () =>
         h(DefaultTheme.Layout, null, {
           'home-features-before': () => h(HomeIntro),

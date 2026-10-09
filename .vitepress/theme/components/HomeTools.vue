@@ -26,7 +26,7 @@ import { TOOL_ICONS } from '../tool-icons'
     </div>
 
     <div class="all">
-      <a class="btn" :href="withBase('/cong-cu/')">Xem tất cả công cụ <ArrowRight :size="15" aria-hidden="true" /></a>
+      <a class="btn" :href="withBase('/docs/cong-cu/')">Xem tất cả công cụ <ArrowRight :size="15" aria-hidden="true" /></a>
     </div>
   </section>
 </template>

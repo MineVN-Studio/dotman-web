@@ -6,22 +6,22 @@ const STEPS = [
   {
     title: 'Tải plugin',
     desc: 'Tải DotMan cùng MineVNLib và PlayerPoints. PlaceholderAPI nên có nhưng không bắt buộc.',
-    link: '/huong-dan/cai-dat#tai-plugin',
+    link: '/docs/huong-dan/cai-dat#tai-plugin',
   },
   {
     title: 'Cài đặt',
     desc: 'Chép các file jar vào thư mục plugins rồi khởi động server. Bản Premium điền thêm license key.',
-    link: '/huong-dan/cai-dat#cai-dat-dotman',
+    link: '/docs/huong-dan/cai-dat#cai-dat-dotman',
   },
   {
     title: 'Chọn cổng thanh toán',
     desc: 'Đặt cổng thẻ cào hoặc ngân hàng trong file cấu hình, điền API key rồi chạy /dotman reload.',
-    link: '/nap-tien/the-cao#chon-cong-gach-the',
+    link: '/docs/nap-tien/the-cao#chon-cong-gach-the',
   },
   {
     title: 'Mở nạp cho người chơi',
     desc: 'Người chơi gõ /napthe để nạp thẻ cào, hoặc /bank để chuyển khoản. Point và lệnh thưởng tự động.',
-    link: '/nap-tien/the-cao',
+    link: '/docs/nap-tien/the-cao',
   },
 ]
 </script>

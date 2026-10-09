@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
-import { data } from '../../../docs/releases/releases.data'
+import { data } from '../../../docs/docs/releases/releases.data'
 
 const BLURBS: Record<string, string> = {
   dotman: 'Bản miễn phí của DotMan.',
@@ -14,7 +14,7 @@ const cards = computed(() =>
     return {
       key: p.key,
       name: p.name,
-      link: withBase(`/releases/${p.key}`),
+      link: withBase(`/docs/releases/${p.key}`),
       version: latest?.tag ?? '-',
       date: latest?.date,
       blurb: BLURBS[p.key],

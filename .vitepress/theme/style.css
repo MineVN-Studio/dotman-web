@@ -1,3 +1,7 @@
+html.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
 :root {
   --vp-font-family-base: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif;
   --vp-font-family-mono: 'JetBrains Mono Variable', ui-monospace, monospace;

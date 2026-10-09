@@ -14,7 +14,7 @@ const SRC = path.resolve(
   ROOT,
   process.argv[2] ?? process.env.DOTMAN_RESOURCES ?? '../dotman-premium/dotman-plugin/src/main/resources',
 )
-const OUT = path.join(ROOT, 'docs/config-mau')
+const OUT = path.join(ROOT, 'docs/docs/config-mau')
 
 /**
  * slug: tên file trang
@@ -35,7 +35,7 @@ const PAGES = [
     metaTitle: 'config.yml mẫu của DotMan',
     metaDescription: 'File config.yml mặc định của DotMan: cấu hình chung, nạp thẻ cào, nạp thủ công, khuyến mãi nạp lần đầu và database.',
     files: ['config.yml'],
-    guide: ['/huong-dan/cau-hinh-chung', 'Cấu hình chung'],
+    guide: ['/docs/huong-dan/cau-hinh-chung', 'Cấu hình chung'],
   },
   {
     slug: 'messages-yml',
@@ -44,7 +44,7 @@ const PAGES = [
     metaTitle: 'messages.yml mẫu của DotMan',
     metaDescription: 'File messages.yml mặc định của DotMan: toàn bộ tin nhắn plugin gửi cho người chơi, có thể tùy chỉnh theo ý bạn.',
     files: ['messages.yml'],
-    guide: ['/huong-dan/cau-hinh-chung#tin-nhan-messages-yml', 'Tin nhắn'],
+    guide: ['/docs/huong-dan/cau-hinh-chung#tin-nhan-messages-yml', 'Tin nhắn'],
   },
   {
     slug: 'banking-yml',
@@ -53,8 +53,8 @@ const PAGES = [
     metaTitle: 'banking.yml mẫu của DotMan Premium',
     metaDescription: 'File banking.yml mặc định của DotMan Premium: cấu hình chung cho chuyển khoản ngân hàng qua mã QR.',
     files: ['banking.yml'],
-    guide: ['/nap-tien/ngan-hang', 'Chuyển khoản ngân hàng'],
-    tool: ['/cong-cu/tinh-toan-point', 'Tính toán point'],
+    guide: ['/docs/nap-tien/ngan-hang', 'Chuyển khoản ngân hàng'],
+    tool: ['/docs/cong-cu/tinh-toan-point', 'Tính toán point'],
     premium: true,
   },
   {
@@ -69,7 +69,7 @@ const PAGES = [
       'providers/banking/sepay.yml',
       'providers/banking/payment-service.yml',
     ],
-    guide: ['/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang', 'Cổng thanh toán ngân hàng'],
+    guide: ['/docs/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang', 'Cổng thanh toán ngân hàng'],
     premium: true,
   },
   {
@@ -85,7 +85,7 @@ const PAGES = [
       'providers/gachthe1s.yml',
       'providers/gachthe5s.yml',
     ],
-    guide: ['/nap-tien/the-cao#chon-cong-gach-the', 'Chọn cổng gạch thẻ'],
+    guide: ['/docs/nap-tien/the-cao#chon-cong-gach-the', 'Chọn cổng gạch thẻ'],
   },
   {
     slug: 'khuyenmai-yml',
@@ -94,8 +94,8 @@ const PAGES = [
     metaTitle: 'khuyenmai.yml mẫu của DotMan',
     metaDescription: 'File khuyenmai.yml mặc định của DotMan: lịch khuyến mãi theo ngày cố định hoặc lặp lại theo tuần, và thông báo khuyến mãi.',
     files: ['khuyenmai.yml'],
-    guide: ['/khuyen-mai/lich-khuyen-mai', 'Lịch khuyến mãi'],
-    tool: ['/cong-cu/lich-khuyen-mai', 'Tạo & kiểm tra lịch khuyến mãi'],
+    guide: ['/docs/khuyen-mai/lich-khuyen-mai', 'Lịch khuyến mãi'],
+    tool: ['/docs/cong-cu/lich-khuyen-mai', 'Tạo & kiểm tra lịch khuyến mãi'],
   },
   {
     slug: 'mocnap-yml',
@@ -104,8 +104,8 @@ const PAGES = [
     metaTitle: 'mocnap.yml mẫu của DotMan',
     metaDescription: 'File mocnap.yml mặc định của DotMan: mốc nạp cá nhân, thưởng khi tổng nạp của người chơi đạt mốc.',
     files: ['mocnap.yml'],
-    guide: ['/phan-thuong/moc-nap-ca-nhan', 'Mốc nạp cá nhân'],
-    tool: ['/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
+    guide: ['/docs/phan-thuong/moc-nap-ca-nhan', 'Mốc nạp cá nhân'],
+    tool: ['/docs/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
   },
   {
     slug: 'mocnaptong-yml',
@@ -114,8 +114,8 @@ const PAGES = [
     metaTitle: 'mocnaptong.yml mẫu của DotMan',
     metaDescription: 'File mocnaptong.yml mặc định của DotMan: mốc nạp tổng của toàn server, kèm bossbar hiển thị tiến độ.',
     files: ['mocnaptong.yml'],
-    guide: ['/phan-thuong/moc-nap-tong', 'Mốc nạp tổng server'],
-    tool: ['/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
+    guide: ['/docs/phan-thuong/moc-nap-tong', 'Mốc nạp tổng server'],
+    tool: ['/docs/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
   },
   {
     slug: 'phanthuongtop-yml',
@@ -124,8 +124,8 @@ const PAGES = [
     metaTitle: 'phanthuongtop.yml mẫu của DotMan Premium',
     metaDescription: 'File phanthuongtop.yml mặc định của DotMan Premium: phần thưởng tự động cho top nạp theo ngày, tuần, tháng.',
     files: ['phanthuongtop.yml'],
-    guide: ['/phan-thuong/phan-thuong-top', 'Phần thưởng top nạp'],
-    tool: ['/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
+    guide: ['/docs/phan-thuong/phan-thuong-top', 'Phần thưởng top nạp'],
+    tool: ['/docs/cong-cu/moc-nap-va-thuong-top', 'Tạo mốc nạp & thưởng top'],
     premium: true,
   },
   {
@@ -135,7 +135,7 @@ const PAGES = [
     metaTitle: 'khungthoigian.yml mẫu của DotMan Premium',
     metaDescription: 'File khungthoigian.yml mặc định của DotMan Premium: khung thời gian cho các sự kiện như Tết, Giáng sinh.',
     files: ['khungthoigian.yml'],
-    guide: ['/phan-thuong/khung-thoi-gian', 'Khung thời gian'],
+    guide: ['/docs/phan-thuong/khung-thoi-gian', 'Khung thời gian'],
     premium: true,
   },
   {
@@ -145,8 +145,8 @@ const PAGES = [
     metaTitle: 'discord.yml mẫu của DotMan',
     metaDescription: 'File discord.yml mặc định của DotMan: thông báo nạp tiền qua Discord webhook dạng embed.',
     files: ['discord.yml'],
-    guide: ['/tich-hop/discord-webhook', 'Discord Webhook'],
-    tool: ['/cong-cu/thiet-ke-discord-embed', 'Thiết kế Discord Embed'],
+    guide: ['/docs/tich-hop/discord-webhook', 'Discord Webhook'],
+    tool: ['/docs/cong-cu/thiet-ke-discord-embed', 'Thiết kế Discord Embed'],
   },
   {
     slug: 'menu',
@@ -155,7 +155,7 @@ const PAGES = [
     metaTitle: 'File giao diện menu mẫu của DotMan',
     metaDescription: 'Các file giao diện menu/*.yml mặc định của DotMan: menu nạp thẻ cào (chọn loại thẻ, mệnh giá) và menu top nạp.',
     files: ['menu/napthe/loaithe.yml', 'menu/napthe/menhgia.yml', 'menu/top.yml'],
-    guide: ['/nap-tien/the-cao#giao-dien-nap-the', 'Giao diện nạp thẻ'],
+    guide: ['/docs/nap-tien/the-cao#giao-dien-nap-the', 'Giao diện nạp thẻ'],
   },
 ]
 

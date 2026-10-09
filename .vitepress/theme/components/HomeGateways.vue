@@ -10,8 +10,8 @@ interface Gateway {
   premium?: boolean
 }
 
-const CARD_LINK = '/nap-tien/the-cao#chon-cong-gach-the'
-const BANK_LINK = '/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang'
+const CARD_LINK = '/docs/nap-tien/the-cao#chon-cong-gach-the'
+const BANK_LINK = '/docs/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang'
 
 const CARDS: Gateway[] = [
   { id: 'card2k', name: 'Card2K', note: 'MineVN Studio khuyên dùng' },

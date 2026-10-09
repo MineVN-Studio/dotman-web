@@ -9,7 +9,7 @@ import { withBase } from 'vitepress'
     </h2>
     <div class="actions">
       <a class="btn brand" href="#dung-thu">Dùng thử Premium 14 ngày</a>
-      <a class="btn alt" :href="withBase('/releases/dotman')">Tải bản miễn phí</a>
+      <a class="btn alt" :href="withBase('/docs/releases/dotman')">Tải bản miễn phí</a>
     </div>
   </section>
 </template>

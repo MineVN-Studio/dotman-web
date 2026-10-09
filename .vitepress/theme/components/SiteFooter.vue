@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from 'vitepress'
+
 const LINKS = [
   { text: 'Diễn đàn Minecraft Việt Nam', href: 'https://minevn.net' },
   { text: 'MineVN Network', href: 'https://blog.minevn.net' },
@@ -14,7 +16,7 @@ const LINKS = [
     <p class="credit">
       Icon created by <a href="https://www.flaticon.com/" target="_blank" rel="noopener">Flaticon</a>
       <span class="sep" aria-hidden="true">·</span>
-      Releases by <a href="https://calagopus.com/" target="_blank" rel="noopener">Calagopus</a>
+      <a :href="withBase('/docs/releases/')">Releases module</a> by <a href="https://calagopus.com/" target="_blank" rel="noopener">Calagopus</a>
     </p>
   </footer>
 </template>

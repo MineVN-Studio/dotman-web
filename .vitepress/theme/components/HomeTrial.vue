@@ -29,7 +29,7 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
 
         <div class="actions">
           <a class="btn brand" :href="DISCORD" target="_blank" rel="noopener">Đăng ký dùng thử</a>
-          <a class="btn alt" href="/huong-dan/tinh-nang#so-sanh-ban-mien-phi-va-premium">Xem tính năng Premium</a>
+          <a class="btn alt" href="/docs/huong-dan/tinh-nang#so-sanh-ban-mien-phi-va-premium">Xem tính năng Premium</a>
         </div>
       </div>
     </div>

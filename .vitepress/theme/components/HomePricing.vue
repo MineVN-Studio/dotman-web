@@ -39,7 +39,7 @@ const PREMIUM = [
           <li v-for="f in FREE" :key="f"><Check :size="16" aria-hidden="true" />{{ f }}</li>
         </ul>
         <div class="actions">
-          <a class="btn alt" :href="withBase('/releases/dotman')">Tải bản miễn phí</a>
+          <a class="btn alt" :href="withBase('/docs/releases/dotman')">Tải bản miễn phí</a>
           <span class="hint">Không cần license, dùng ngay</span>
         </div>
       </article>
@@ -62,7 +62,7 @@ const PREMIUM = [
 
     <p class="compare">
       Cần so sánh chi tiết từng tính năng? Xem
-      <a :href="withBase('/huong-dan/tinh-nang#so-sanh-ban-mien-phi-va-premium')">bảng so sánh đầy đủ</a>.
+      <a :href="withBase('/docs/huong-dan/tinh-nang#so-sanh-ban-mien-phi-va-premium')">bảng so sánh đầy đủ</a>.
     </p>
   </section>
 </template>

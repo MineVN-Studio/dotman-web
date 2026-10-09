@@ -1,6 +1,6 @@
 ---
 title: Mốc nạp tổng server
-description: 'Mốc nạp tổng server trong DotMan: mục tiêu nạp chung của cả cộng đồng, chạy lệnh thưởng khi đạt mốc, kèm bossbar hiển thị tiến độ.'
+description: 'Mốc nạp tổng server trong DotMan: Mục tiêu nạp chung của cả cộng đồng, chạy lệnh thưởng khi đạt mốc, kèm bossbar hiển thị tiến độ.'
 ---
 
 # Mốc nạp tổng server

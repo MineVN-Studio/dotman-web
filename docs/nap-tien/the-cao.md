@@ -1,6 +1,6 @@
 ---
 title: Nạp thẻ cào tự động cho server Minecraft
-description: 'Cấu hình nạp thẻ cào trong DotMan: chọn cổng gạch thẻ Card2K, TheSieuRe, GameBank, mệnh giá, lệnh thưởng và giao diện nạp thẻ.'
+description: 'Cấu hình nạp thẻ cào trong DotMan: Chọn cổng gạch thẻ Card2K, TheSieuRe, GameBank, mệnh giá, lệnh thưởng và giao diện nạp thẻ.'
 ---
 
 # Nạp thẻ cào

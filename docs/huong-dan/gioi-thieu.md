@@ -1,6 +1,6 @@
 ---
 title: Giới thiệu DotMan
-description: 'Giới thiệu DotMan (Donation Manager): plugin quản lý dòng tiền cho server Minecraft Việt Nam, tích hợp cổng thẻ cào và ngân hàng, khuyến mãi, mốc nạp, top nạp.'
+description: 'Giới thiệu DotMan (Donation Manager): Plugin quản lý dòng tiền cho server Minecraft Việt Nam, tích hợp cổng thẻ cào và ngân hàng, khuyến mãi, mốc nạp, top nạp.'
 ---
 
 # Giới thiệu DotMan

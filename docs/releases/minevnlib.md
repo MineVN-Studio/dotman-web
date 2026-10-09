@@ -1,6 +1,6 @@
 ---
 title: MineVNLib Releases - lịch sử cập nhật
-description: Lịch sử cập nhật và liên kết tải MineVNLib, thư viện bắt buộc của DotMan, từ GitHub Releases.
+description: Lịch sử cập nhật MineVNLib, thư viện dùng chung cho các plugin của MineVN.
 outline: [2, 2]
 ---
 

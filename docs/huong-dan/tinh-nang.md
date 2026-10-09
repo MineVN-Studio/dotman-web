@@ -1,6 +1,6 @@
 ---
 title: Tính năng DotMan, bản miễn phí và Premium
-description: 'Danh sách đầy đủ tính năng của DotMan: nạp thẻ cào, chuyển khoản ngân hàng, khuyến mãi, mốc nạp, top nạp, quản trị. So sánh bản miễn phí và Premium.'
+description: 'Danh sách đầy đủ tính năng của DotMan: Nạp thẻ cào, chuyển khoản ngân hàng, khuyến mãi, mốc nạp, top nạp, quản trị. So sánh bản miễn phí và Premium.'
 ---
 
 # Tính năng

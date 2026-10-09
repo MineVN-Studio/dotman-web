@@ -151,7 +151,7 @@ export default defineConfig({
     ['link', { rel: 'apple-touch-icon', href: '/dotman.png' }],
     ['meta', { name: 'theme-color', content: '#3ecf8e' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'DotMan Docs' }],
+    ['meta', { property: 'og:site_name', content: 'DotMan' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
   ],
 
@@ -218,7 +218,6 @@ export default defineConfig({
       ...structured,
       ['link', { rel: 'canonical', href: url }],
       ['meta', { property: 'og:locale', content: 'vi_VN' }],
-      // tiêu đề thuần, không kèm hậu tố " | DotMan Docs" của titleTemplate vì og:site_name đã hiện tên site
       ['meta', { property: 'og:title', content: pageData.title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: url }],

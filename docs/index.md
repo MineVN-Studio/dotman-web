@@ -18,7 +18,7 @@ hero:
       link: /huong-dan/gioi-thieu
     - theme: alt
       text: Khám phá tính năng
-      link: /khuyen-mai/lich-khuyen-mai
+      link: /huong-dan/tinh-nang
     - theme: alt
       text: Tải plugin
       link: /releases/dotman

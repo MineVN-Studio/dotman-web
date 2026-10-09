@@ -1,6 +1,6 @@
 ---
 title: DotMan Releases - lịch sử cập nhật
-description: Lịch sử cập nhật và changelog của DotMan bản miễn phí từ GitHub Releases, kèm nơi xem changelog bản Premium trên Discord.
+description: Lịch sử cập nhật và changelog của DotMan bản miễn phí.
 outline: [2, 2]
 ---
 

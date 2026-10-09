@@ -1,6 +1,6 @@
 ---
 title: Placeholder API của DotMan
-description: 'Danh sách placeholder của DotMan dùng với PlaceholderAPI: dữ liệu người chơi, top nạp, tổng nạp toàn server và khung thời gian.'
+description: 'Danh sách placeholder của DotMan dùng với PlaceholderAPI: Dữ liệu người chơi, top nạp, tổng nạp toàn server và khung thời gian.'
 ---
 
 # Placeholder API

@@ -1,6 +1,6 @@
 ---
 title: Top nạp và bảng xếp hạng nạp
-description: 'Bảng xếp hạng người nạp nhiều nhất trong DotMan: top toàn thời gian, theo ngày, tuần, tháng và giao diện top nạp tùy chỉnh.'
+description: 'Bảng xếp hạng người nạp nhiều nhất trong DotMan: Top toàn thời gian, theo ngày, tuần, tháng và giao diện top nạp tùy chỉnh.'
 ---
 
 # Top nạp

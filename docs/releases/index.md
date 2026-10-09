@@ -1,6 +1,6 @@
 ---
 title: Releases - DotMan và MineVNLib
-description: 'Lịch sử cập nhật của DotMan và MineVNLib: changelog, phiên bản mới nhất và liên kết tải từ GitHub Releases.'
+description: 'Lịch sử cập nhật của DotMan và MineVNLib'
 ---
 
 # Releases

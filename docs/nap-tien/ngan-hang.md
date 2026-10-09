@@ -1,6 +1,6 @@
 ---
 title: Nạp tiền qua chuyển khoản ngân hàng (QR)
-description: 'Cấu hình chuyển khoản ngân hàng cho DotMan Premium: mã QR tự duyệt giao dịch qua MBBank, PayOS, SePay hoặc Payment Service.'
+description: 'Cấu hình chuyển khoản ngân hàng cho DotMan Premium: Mã QR tự duyệt giao dịch qua MBBank, PayOS, SePay hoặc Payment Service.'
 ---
 
 # Chuyển khoản ngân hàng <Badge type="tip" text="Premium" />

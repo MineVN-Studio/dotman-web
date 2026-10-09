@@ -117,6 +117,8 @@ const sidebar: DefaultTheme.SidebarItem[] = [
 ]
 
 const SITE_NAME = 'DotMan - Donation Manager'
+// ảnh hiện khi chia sẻ link (phải là đường dẫn tuyệt đối), file nằm trong docs/public
+const SHARE_IMAGE = { url: SITE_URL + '/dotman.png', width: 512, height: 512, alt: 'Logo DotMan' }
 const PUBLISHER = { '@type': 'Organization', name: 'MineVN Studio', url: 'https://minevn.net/studio' }
 
 /** Đường dẫn các cấp của một trang trong sidebar, dùng cho breadcrumb: [{ name, path }] (không gồm trang chủ) */
@@ -138,7 +140,7 @@ export default defineConfig({
   srcDir: 'docs',
   lang: 'vi-VN',
   title: 'DotMan',
-  titleTemplate: ':title | DotMan Docs',
+  titleTemplate: ':title',
   // đồng bộ với tagline trong hero của docs/index.md; các trang không tự khai báo description cũng dùng dòng này
   description:
     'Giải pháp quản lý dòng tiền cho server Minecraft Việt Nam, dễ dàng tích hợp các cổng thanh toán thẻ cào và ngân hàng. Với các tính năng quản trị, thống kê, lịch sử giao dịch và khuyến mãi.',
@@ -162,7 +164,8 @@ export default defineConfig({
   },
 
   // Thẻ riêng cho từng trang để link gửi lên Discord, Facebook, Zalo, Google hiển thị đúng tiêu đề và mô tả.
-  // Chưa có og:image: khi có ảnh chia sẻ thì thêm og:image tại đây và đổi twitter:card thành summary_large_image.
+  // Ảnh chia sẻ hiện là logo vuông dotman.png: với twitter:card là summary, Discord và các nơi khác hiện nó dạng ảnh nhỏ (thumbnail) góc phải của embed.
+  // Khi có ảnh ngang 1200x630 thì đổi SHARE_IMAGE và twitter:card thành summary_large_image để ảnh hiện lớn bên dưới.
   transformHead({ pageData, description }) {
     // trang lỗi 404 không được lập chỉ mục
     if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex, nofollow' }]]
@@ -182,7 +185,6 @@ export default defineConfig({
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           name: SITE_NAME,
-          alternateName: 'DotMan Docs',
           url: SITE_URL + '/',
           inLanguage: 'vi-VN',
           description,
@@ -220,6 +222,13 @@ export default defineConfig({
       ['meta', { property: 'og:title', content: pageData.title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:image', content: SHARE_IMAGE.url }],
+      ['meta', { property: 'og:image:type', content: 'image/png' }],
+      ['meta', { property: 'og:image:width', content: String(SHARE_IMAGE.width) }],
+      ['meta', { property: 'og:image:height', content: String(SHARE_IMAGE.height) }],
+      ['meta', { property: 'og:image:alt', content: SHARE_IMAGE.alt }],
+      ['meta', { name: 'twitter:image', content: SHARE_IMAGE.url }],
+      ['meta', { name: 'twitter:image:alt', content: SHARE_IMAGE.alt }],
     ]
   },
 

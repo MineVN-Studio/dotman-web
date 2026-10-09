@@ -111,6 +111,12 @@ if (!fs.existsSync(path.join(DIST, 'sitemap.xml'))) {
     else if (ogUrl !== canonical) errors.push(`${rel}: og:url khác canonical`)
 
     if (!pick(html, /<meta name="description" content="([^"]*)"/)) errors.push(`${rel}: thiếu meta description`)
+
+    // ảnh chia sẻ phải là đường dẫn tuyệt đối và file phải tồn tại trong bản build
+    const ogImage = pick(html, /property="og:image" content="([^"]*)"/)
+    if (!ogImage) errors.push(`${rel}: thiếu og:image`)
+    else if (!ogImage.startsWith(`${SITE}/`)) errors.push(`${rel}: og:image phải là đường dẫn tuyệt đối (${ogImage})`)
+    else if (!fs.existsSync(path.join(DIST, ogImage.slice(SITE.length)))) errors.push(`${rel}: og:image không có trong bản build (${ogImage})`)
     if (/name="robots" content="[^"]*noindex/.test(html)) errors.push(`${rel}: đang bị noindex`)
 
     const h1 = (html.match(/<h1[ >]/g) || []).length

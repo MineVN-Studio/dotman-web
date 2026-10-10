@@ -24,7 +24,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     text: 'Bắt đầu',
     collapsed: false,
     items: [
-      { text: 'Giới thiệu', link: '/docs' },
+      { text: 'Giới thiệu', link: '/docs/huong-dan/gioi-thieu' },
       { text: 'Tính năng', link: '/docs/huong-dan/tinh-nang' },
       { text: 'Cài đặt', link: '/docs/huong-dan/cai-dat' },
       { text: 'Cấu hình chung', link: '/docs/huong-dan/cau-hinh-chung' },

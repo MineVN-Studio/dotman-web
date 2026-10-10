@@ -14,7 +14,7 @@ Hướng dẫn cài DotMan lên server mới: Tải plugin và các plugin phụ
 | Miễn phí | [Releases: DotMan](/docs/releases/dotman) |
 | Premium | Tại [Discord MineVN Studio](https://minevn.net/studio).<br />Chủ server chưa từng dùng DotMan được dùng thử miễn phí 14 ngày, mở ticket tại Discord để đăng ký. |
 
-DotMan cần các plugin sau để hoạt động: [Yêu cầu hệ thống](/docs#yeu-cau-he-thong):
+DotMan cần các plugin sau để hoạt động: [Yêu cầu hệ thống](/docs/huong-dan/gioi-thieu#yeu-cau-he-thong):
 
 - [MineVNLib](/docs/releases/minevnlib), xem [cách chọn bản jar](#chon-ban-minevnlib) bên dưới.
 - [PlayerPoints](https://www.spigotmc.org/resources/playerpoints.80745/).

@@ -3,7 +3,8 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 // API nội bộ của VitePress: danh sách callback đăng ký qua onContentUpdated (mục lục bên phải dùng nó)
 import { contentUpdatedCallbacks } from 'vitepress/dist/client/app/utils.js'
 import { getScrollOffset } from 'vitepress'
-import { data } from '../../../docs/docs/releases/releases.data'
+import { Download } from 'lucide-vue-next'
+import { data, type Release } from '../../../docs/docs/releases/releases.data'
 
 type Channel = 'stable' | 'beta' | 'all'
 
@@ -17,6 +18,12 @@ const newerBeta = computed(() => {
   const first = releases.value[0]
   return first && first.prerelease && !first.latest ? first : undefined
 })
+
+/** File để tải: ưu tiên file .jar, release không có jar thì hiện tất cả file đính kèm */
+function downloadFiles(r: Release) {
+  const jars = r.assets.filter((a) => /\.jar$/i.test(a.name))
+  return jars.length ? jars : r.assets
+}
 
 const channel = ref<Channel>('stable')
 const query = ref('')
@@ -83,23 +90,56 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
     </p>
 
     <template v-else>
-      <div class="summary">
-        <div class="summary-latest">
-          <span class="summary-label">Phiên bản mới nhất</span>
-          <a v-if="latest" class="summary-version" :href="`#${latest.id}`">{{ latest.tag }}</a>
-          <span v-if="latest" class="summary-date">{{ latest.date }}</span>
-          <span v-if="newerBeta" class="summary-pre">
-            Bản beta mới nhất:
-            <a :href="`#${newerBeta.id}`" @click.prevent="showRelease(newerBeta.id)">{{ newerBeta.tag }}</a>
-          </span>
-        </div>
-        <div class="summary-meta">
-          <a :href="project.releasesUrl" target="_blank" rel="noreferrer">
-            {{ releases.length }} bản phát hành trên GitHub
-          </a>
-          <span>Đồng bộ ngày {{ data.syncedAt }}</span>
-        </div>
+      <div class="downloads">
+        <section v-if="latest" class="dl-card">
+          <div class="dl-head">
+            <span class="dl-channel">Stable</span>
+            <span class="badge latest">Mới nhất</span>
+          </div>
+          <div class="dl-ver">
+            <a class="dl-version" :href="`#${latest.id}`">{{ latest.tag }}</a>
+            <span class="dl-date">{{ latest.date }}</span>
+          </div>
+          <p class="dl-note">Phiên bản ổn định để sử dụng cho server chính.</p>
+          <div class="dl-files">
+            <a v-for="a in downloadFiles(latest)" :key="a.url" class="dl-btn" :href="a.url" rel="noreferrer">
+              <Download :size="16" aria-hidden="true" />
+              <span class="dl-info">
+                <span class="dl-name">{{ a.name }}</span>
+                <span class="dl-size">{{ a.size }}</span>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section v-if="newerBeta" class="dl-card beta">
+          <div class="dl-head">
+            <span class="dl-channel">Beta</span>
+            <span class="badge pre">Thử nghiệm</span>
+          </div>
+          <div class="dl-ver">
+            <a class="dl-version" :href="`#${newerBeta.id}`" @click.prevent="showRelease(newerBeta.id)">{{ newerBeta.tag }}</a>
+            <span class="dl-date">{{ newerBeta.date }}</span>
+          </div>
+          <p class="dl-note">Phiên bản thử nghiệm các tính năng mới, có thể có lỗi khi dùng trên server chính.</p>
+          <div class="dl-files">
+            <a v-for="a in downloadFiles(newerBeta)" :key="a.url" class="dl-btn" :href="a.url" rel="noreferrer">
+              <Download :size="16" aria-hidden="true" />
+              <span class="dl-info">
+                <span class="dl-name">{{ a.name }}</span>
+                <span class="dl-size">{{ a.size }}</span>
+              </span>
+            </a>
+          </div>
+        </section>
       </div>
+
+      <p class="dl-meta">
+        <a :href="project.releasesUrl" target="_blank" rel="noreferrer">
+          {{ releases.length }} bản phát hành trên GitHub
+        </a>
+        <span>Đồng bộ ngày {{ data.syncedAt }}</span>
+      </p>
 
       <div class="controls">
         <div v-if="counts.beta > 0" class="channels" role="radiogroup" aria-label="Kênh phát hành">
@@ -160,60 +200,139 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
 </template>
 
 <style scoped>
-.summary {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
+.downloads {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 16px;
-  margin: 24px 0;
-  padding: 20px 24px;
+  margin: 24px 0 12px;
+}
+
+@media (min-width: 640px) {
+  .downloads {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+}
+
+.dl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
   background-color: var(--vp-c-bg-soft);
 }
 
-.summary-label {
-  display: block;
+.dl-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dl-channel {
   color: var(--vp-c-text-2);
   font-size: 13px;
   font-weight: 500;
 }
 
-.summary-version {
+.dl-ver {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dl-version {
   color: var(--vp-c-brand-1);
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
-.summary-date {
-  margin-left: 8px;
+.dl-card.beta .dl-version {
+  color: var(--vp-c-warning-1);
+}
+
+.dl-date {
   color: var(--vp-c-text-2);
   font-size: 14px;
 }
 
-.summary-pre {
-  display: block;
-  margin-top: 4px;
+.dl-note {
+  margin: 0;
   color: var(--vp-c-text-2);
   font-size: 13px;
+  line-height: 1.5;
 }
 
-.summary-meta {
+/* đẩy nút xuống đáy thẻ để các thẻ có ghi chú dài ngắn khác nhau vẫn có nút thẳng hàng */
+.dl-files {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: right;
-  color: var(--vp-c-text-2);
-  font-size: 13px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
-@media (max-width: 640px) {
-  .summary-meta {
-    text-align: left;
-  }
+.dl-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-brand-1);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.dl-btn:hover {
+  background-color: var(--vp-c-brand-1);
+  color: var(--vp-c-white);
+}
+
+.dl-card.beta .dl-btn {
+  border-color: var(--vp-c-warning-1);
+  color: var(--vp-c-warning-1);
+}
+
+.dl-card.beta .dl-btn:hover {
+  background-color: var(--vp-c-warning-1);
+  color: var(--vp-c-white);
+}
+
+.dl-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dl-name {
+  font-size: 12.5px;
+  overflow-wrap: anywhere;
+}
+
+.dl-size {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.dl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
 }
 
 .controls {

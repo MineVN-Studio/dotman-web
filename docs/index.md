@@ -20,8 +20,8 @@ hero:
       text: Khám phá tính năng
       link: /docs/huong-dan/tinh-nang
     - theme: alt
-      text: Tải plugin
-      link: /docs/releases/dotman
+      text: Dùng thử Premium
+      link: '#dung-thu'
 
 
 features:
@@ -127,7 +127,7 @@ Cần server Spigot, Paper hoặc Folia từ phiên bản 1.8.8 trở lên, cùn
 - **PlaceholderAPI** không bắt buộc, nhưng nên có nếu muốn hiện top nạp lên hologram, scoreboard hay tab list.
 - Server 1.8 không có BossBar nên các tính năng bossbar sẽ tự tắt.
 
-Xem chi tiết tại [Yêu cầu hệ thống](/docs#yeu-cau-he-thong).
+Xem chi tiết tại [Yêu cầu hệ thống](/docs/huong-dan/gioi-thieu#yeu-cau-he-thong).
 
 </FaqItem>
 

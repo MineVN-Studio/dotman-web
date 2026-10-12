@@ -638,14 +638,10 @@ function doImport() {
   margin: -8px 0 0;
 }
 
-/* tên key trong nhãn xuống dòng nguyên khối khi màn hình hẹp, không bị ngắt giữa chữ */
+/* tên key trong nhãn xuống dòng riêng khi màn hình hẹp */
 .tool-label {
   flex-wrap: wrap;
   row-gap: 2px;
-}
-
-.tool-label code {
-  white-space: nowrap;
 }
 
 /* tiêu đề cột và các dòng mức nạp dùng chung một lưới: Số tiền | Lệnh | nút xóa (32px) */

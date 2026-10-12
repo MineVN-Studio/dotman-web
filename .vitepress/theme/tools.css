@@ -21,6 +21,12 @@
   color: var(--vp-c-brand-1);
 }
 
+/* tên key, ID ngắn trong nhãn và dòng gợi ý xuống dòng nguyên khối, không bị ngắt tại dấu gạch ngang */
+.tool-label code,
+.tool-hint code {
+  white-space: nowrap;
+}
+
 .tool-panel {
   display: grid;
   gap: 16px;

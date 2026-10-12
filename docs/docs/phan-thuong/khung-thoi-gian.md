@@ -14,7 +14,11 @@ Tổng nạp của người chơi trong khung thời gian được theo dõi ri�
 
 ## Cấu hình
 
-Khai báo trong file `khungthoigian.yml`, hoặc tạo nhanh bằng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian):
+::: tip Tạo nhanh bằng công cụ
+Dùng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian) để chọn thời gian bằng lịch và kiểm tra ID. Công cụ cũng tạo sẵn placeholder và mẫu mốc nạp cho từng khung.
+:::
+
+Khai báo trong file `khungthoigian.yml`:
 
 ```yaml [khungthoigian.yml]
 giang-sinh-2026:              # ID của khung thời gian

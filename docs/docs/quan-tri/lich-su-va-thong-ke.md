@@ -75,7 +75,7 @@ Dùng [`/congpoint`](/docs/tham-khao/danh-sach-lenh-va-permission#congpoint) tha
 /dotman tracuugd <mã giao dịch>
 ```
 
-Alias: `magiaodich`. Xem chi tiết giao dịch thẻ cào theo mã giao dịch của cổng gạch thẻ: người chơi, loại thẻ, point nhận, server, thời gian.
+Alias: `magiaodich`. Xem chi tiết giao dịch thẻ cào theo mã giao dịch của cổng gạch thẻ: Người chơi, loại thẻ, point nhận, server, thời gian.
 
 ## Xóa dữ liệu người chơi
 

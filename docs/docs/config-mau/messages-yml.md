@@ -1,6 +1,6 @@
 ---
 title: "messages.yml mẫu của DotMan"
-description: "File messages.yml mặc định của DotMan: toàn bộ tin nhắn plugin gửi cho người chơi, có thể tùy chỉnh theo ý bạn."
+description: "File messages.yml mặc định của DotMan: Toàn bộ tin nhắn plugin gửi cho người chơi, có thể tùy chỉnh theo ý bạn."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

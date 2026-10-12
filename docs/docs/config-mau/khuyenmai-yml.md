@@ -1,6 +1,6 @@
 ---
 title: "khuyenmai.yml mẫu của DotMan"
-description: "File khuyenmai.yml mặc định của DotMan: lịch khuyến mãi theo ngày cố định hoặc lặp lại theo tuần, và thông báo khuyến mãi."
+description: "File khuyenmai.yml mặc định của DotMan: Lịch khuyến mãi theo ngày cố định hoặc lặp lại theo tuần, và thông báo khuyến mãi."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

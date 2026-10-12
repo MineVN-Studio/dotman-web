@@ -31,7 +31,7 @@ first-donate:
 
 - Lần nạp đầu là khi người chơi chưa có giao dịch thành công nào trước đó trên server.
 - `extra-rate` được **cộng thêm** vào tỉ lệ của [khuyến mãi đang áp dụng](/docs/khuyen-mai/lich-khuyen-mai).
-  - Ví dụ: đang có khuyến mãi 50%, `extra-rate: 1.0`, thì lần nạp đầu được khuyến mãi 150%.
+  - Ví dụ: Đang có khuyến mãi 50%, `extra-rate: 1.0`, thì lần nạp đầu được khuyến mãi 150%.
 - Nạp thủ công không tính là nạp lần đầu.
 
 ## Placeholder

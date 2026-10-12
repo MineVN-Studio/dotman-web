@@ -1,6 +1,6 @@
 ---
 title: "khungthoigian.yml mẫu của DotMan Premium"
-description: "File khungthoigian.yml mặc định của DotMan Premium: khung thời gian cho các sự kiện như Tết, Giáng sinh."
+description: "File khungthoigian.yml mặc định của DotMan Premium: Khung thời gian cho các sự kiện như Tết, Giáng sinh."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

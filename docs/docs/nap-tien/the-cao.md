@@ -84,7 +84,7 @@ Point nhận = point theo mệnh giá + (point theo mệnh giá × tỉ lệ khu
 
 - Tỉ lệ khuyến mãi lấy từ [lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai).
   - Nếu là lần nạp đầu tiên, cộng thêm tỉ lệ [khuyến mãi nạp lần đầu](/docs/khuyen-mai/nap-lan-dau) <Badge type="tip" text="Premium" />.
-- Ví dụ: thẻ 100.000đ, khuyến mãi 50% thì nhận `100 + 100 × 0.5 = 150` point.
+- Ví dụ: Thẻ 100.000đ, khuyến mãi 50% thì nhận `100 + 100 × 0.5 = 150` point.
 - Tính thử với cấu hình của bạn bằng công cụ [Tính toán point](/docs/cong-cu/tinh-toan-point).
 
 ## Lệnh sau khi nạp thẻ
@@ -151,9 +151,9 @@ Giao diện được cấu hình trong 2 file:
 
 Cách bố trí:
 
-- `rows`: số hàng của giao diện, tối đa 6.
-- `background.fill`: các ô đánh dấu `x` được tô nền. Số dòng phải bằng `rows`, mỗi dòng 9 ký tự.
-- `cards.fill`, `prices.fill`: các ô đánh dấu `x` lần lượt được đặt loại thẻ, mệnh giá.
+- `rows`: Số hàng của giao diện, tối đa 6.
+- `background.fill`: Các ô đánh dấu `x` được tô nền. Số dòng phải bằng `rows`, mỗi dòng 9 ký tự.
+- `cards.fill`, `prices.fill`: Các ô đánh dấu `x` lần lượt được đặt loại thẻ, mệnh giá.
 - Các nút khác đặt theo `slot` (ô đầu tiên là `0`).
 
 Các nút trong giao diện chọn loại thẻ:

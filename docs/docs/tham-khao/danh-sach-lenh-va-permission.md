@@ -1,6 +1,6 @@
 ---
 title: Danh sách lệnh và permission của DotMan
-description: 'Danh sách lệnh và permission của DotMan: lệnh người chơi như /napthe, /bank, /khuyenmai và lệnh quản trị như /dotman, /congpoint.'
+description: 'Danh sách lệnh và permission của DotMan: Lệnh người chơi như /napthe, /bank, /khuyenmai và lệnh quản trị như /dotman, /congpoint.'
 ---
 
 # Lệnh & permission

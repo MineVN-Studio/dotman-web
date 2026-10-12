@@ -1,6 +1,6 @@
 ---
 title: "File giao diện menu mẫu của DotMan"
-description: "Các file giao diện menu/*.yml mặc định của DotMan: menu nạp thẻ cào (chọn loại thẻ, mệnh giá) và menu top nạp."
+description: "Các file giao diện menu/*.yml mặc định của DotMan: Menu nạp thẻ cào (chọn loại thẻ, mệnh giá) và menu top nạp."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

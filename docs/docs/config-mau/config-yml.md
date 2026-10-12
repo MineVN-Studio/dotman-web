@@ -1,6 +1,6 @@
 ---
 title: "config.yml mẫu của DotMan"
-description: "File config.yml mặc định của DotMan: cấu hình chung, nạp thẻ cào, nạp thủ công, khuyến mãi nạp lần đầu và database."
+description: "File config.yml mặc định của DotMan: Cấu hình chung, nạp thẻ cào, nạp thủ công, khuyến mãi nạp lần đầu và database."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

@@ -16,7 +16,7 @@ DotMan chống việc này bằng cách:
 
 ## Các bước thiết lập
 
-1. **Kiểm tra cấu hình:** đảm bảo [nạp thẻ cào](/docs/nap-tien/the-cao) và [chuyển khoản ngân hàng](/docs/nap-tien/ngan-hang) đã chạy đúng với cấu hình trong file.
+1. **Kiểm tra cấu hình:** Đảm bảo [nạp thẻ cào](/docs/nap-tien/the-cao) và [chuyển khoản ngân hàng](/docs/nap-tien/ngan-hang) đã chạy đúng với cấu hình trong file.
 2. **Đặt mật khẩu xác minh:**
 
    ```
@@ -35,7 +35,7 @@ DotMan chống việc này bằng cách:
    - Kết quả hiện riêng cho phần nạp thẻ và phần ngân hàng, kèm cổng thanh toán đã được khóa.
    - Nếu file thiếu thông tin, phần đó sẽ không được lưu, xem chi tiết trong console.
 
-4. **Áp dụng:** chạy `/dotman reload` trên **tất cả** server dùng chung database.
+4. **Áp dụng:** Chạy `/dotman reload` trên **tất cả** server dùng chung database.
 5. **Xóa thông tin nhạy cảm khỏi file:** API key của cổng gạch thẻ, mật khẩu ngân hàng, API key của cổng ngân hàng.
 
 ::: warning Lưu ý

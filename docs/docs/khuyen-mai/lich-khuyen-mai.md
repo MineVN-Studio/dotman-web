@@ -31,7 +31,7 @@ Mỗi mục trong danh sách `khuyen-mai` là một chương trình khuyến mã
 Thời gian dùng định dạng `dd/MM/yyyy HH:mm:ss` hoặc `dd/MM/yyyy HH:mm`.
 
 ::: tip Không muốn tự viết config?
-Dùng công cụ [Tạo lịch khuyến mãi](/docs/cong-cu/lich-khuyen-mai#tao-lich-khuyen-mai) để tạo khuyến mãi dễ dàng hơn: chọn thứ, khung giờ, ngày bắt đầu, kết thúc rồi sao chép config cuối cùng vào `khuyenmai.yml`.
+Dùng công cụ [Tạo lịch khuyến mãi](/docs/cong-cu/lich-khuyen-mai#tao-lich-khuyen-mai) để tạo khuyến mãi dễ dàng hơn: Chọn thứ, khung giờ, ngày bắt đầu, kết thúc rồi sao chép config cuối cùng vào `khuyenmai.yml`.
 :::
 
 - Khuyến mãi dừng **đúng** tại thời điểm `to`.
@@ -127,7 +127,7 @@ Dán `khuyenmai.yml` vào công cụ [Kiểm tra lịch khuyến mãi](/docs/con
 
 ## Thứ tự ưu tiên
 
-- Nhiều khuyến mãi cùng diễn ra: áp dụng khuyến mãi có `rate` cao nhất.
+- Nhiều khuyến mãi cùng diễn ra: Áp dụng khuyến mãi có `rate` cao nhất.
   - Cùng `rate` thì lấy mục đứng trước trong file.
 - Khuyến mãi trong `khuyenmai.yml` được ưu tiên hơn [khuyến mãi nhanh trong config.yml](#khuyen-mai-nhanh-trong-config-yml).
 - Các khuyến mãi **không cộng dồn** với nhau.

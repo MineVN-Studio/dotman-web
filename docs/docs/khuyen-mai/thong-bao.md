@@ -87,7 +87,7 @@ Dùng được trong `message.active`, `message.ended` và `titles`:
 Cách hiển thị thời gian còn lại chỉnh trong các mục `duration-*` của [messages.yml](/docs/config-mau/messages-yml).
 
 ::: info Nâng cấp từ bản cũ
-File `khuyenmai.yml` cũ chưa có mục `thong-bao` sẽ dùng cấu hình mặc định: **bật thông báo chat**, tắt bossbar.
+File `khuyenmai.yml` cũ chưa có mục `thong-bao` sẽ dùng cấu hình mặc định: **Bật thông báo chat**, tắt bossbar.
 Muốn tắt, thêm vào `khuyenmai.yml`:
 
 ```yaml

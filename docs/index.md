@@ -142,9 +142,9 @@ Chủ server chọn cổng đang dùng trong file cấu hình, xem [Nạp thẻ 
 
 <FaqItem q="Người chơi nạp tiền như thế nào?">
 
-- **Thẻ cào:** gõ `/napthe`, chọn loại thẻ và mệnh giá, rồi nhập seri và mã thẻ.
-- **Chuyển khoản** (Premium): gõ `/bank <số tiền>`, mã QR hiện ngay trên tay người chơi. Chuyển khoản đúng số tiền và nội dung của giao dịch, plugin tự kiểm tra rồi cộng point.
-- **Kênh khác:** nếu người chơi nạp trực tiếp cho admin, admin dùng [nạp thủ công](/docs/nap-tien/thu-cong) để ghi nhận như một giao dịch bình thường.
+- **Thẻ cào:** Gõ `/napthe`, chọn loại thẻ và mệnh giá, rồi nhập seri và mã thẻ.
+- **Chuyển khoản** (Premium): Gõ `/bank <số tiền>`, mã QR hiện ngay trên tay người chơi. Chuyển khoản đúng số tiền và nội dung của giao dịch, plugin tự kiểm tra rồi cộng point.
+- **Kênh khác:** Nếu người chơi nạp trực tiếp cho admin, admin dùng [nạp thủ công](/docs/nap-tien/thu-cong) để ghi nhận như một giao dịch bình thường.
 
 </FaqItem>
 
@@ -166,7 +166,7 @@ Xem cách cấu hình tại [Thiết lập database](/docs/huong-dan/cai-dat#thi
 
 <FaqItem q="Cấu hình có bị sửa trộm để đổi nơi nhận tiền không?">
 
-Bản Premium có tính năng **bảo mật cấu hình**: mã hóa API key và thông tin ngân hàng rồi lưu lên database, khóa cổng thanh toán để sửa file cấu hình không đổi được nơi nhận tiền, và đặt mật khẩu xác minh cho các lệnh nhạy cảm. Xem [Bảo mật cấu hình](/docs/quan-tri/bao-mat-cau-hinh).
+Bản Premium có tính năng **bảo mật cấu hình**: Mã hóa API key và thông tin ngân hàng rồi lưu lên database, khóa cổng thanh toán để sửa file cấu hình không đổi được nơi nhận tiền, và đặt mật khẩu xác minh cho các lệnh nhạy cảm. Xem [Bảo mật cấu hình](/docs/quan-tri/bao-mat-cau-hinh).
 
 </FaqItem>
 

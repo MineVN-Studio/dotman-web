@@ -31,9 +31,11 @@ Một số cấu hình dài và dễ sai, nên DotMan có sẵn công cụ chạ
 
 - [Tính toán point](/docs/cong-cu/tinh-toan-point): Xem trước số point người chơi nhận được.
 - [Tạo và kiểm tra lịch khuyến mãi](/docs/cong-cu/lich-khuyen-mai): Tạo mới khuyến mãi hoặc dán file có sẵn để tìm lỗi.
+- [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian): Tạo khung thời gian cho sự kiện, kèm sẵn placeholder và mốc nạp theo khung.
 - [Tạo placeholder](/docs/cong-cu/tao-placeholder): Chọn loại dữ liệu để ra đúng placeholder.
 - [Thiết kế Discord Embed](/docs/cong-cu/thiet-ke-discord-embed): Chuyển thiết kế Discohook thành `discord.yml`.
 - [Tạo mốc nạp và thưởng top](/docs/cong-cu/moc-nap-va-thuong-top): Tạo mốc nạp, mốc nạp tổng và phần thưởng top.
+- [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang): Tạo `banking.yml` và file cổng ngân hàng, chuyển cấu hình cũ sang cấu trúc mới.
 
 ## Dùng hướng dẫn hiệu quả
 

@@ -85,8 +85,8 @@ const issues = computed(() => {
     const id = frameId(f)
     const where = id ? `Khung "${id}"` : `Khung ${i + 1}`
     // thiếu name, from hoặc to thì plugin lỗi khi đọc cả file, mọi khung đều không chạy
-    if (!f.name.trim()) out.push({ level: 'error', text: `${where}: chưa nhập tên, plugin sẽ không đọc được cả file.` })
-    if (!id) out.push({ level: 'error', text: `${where}: chưa nhập ID.` })
+    if (!f.name.trim()) out.push({ level: 'error', text: `${where}: Chưa nhập tên, plugin sẽ không đọc được cả file.` })
+    if (!id) out.push({ level: 'error', text: `${where}: Chưa nhập ID.` })
     else if (id.includes('_')) out.push({ level: 'error', text: `${where}: ID không được chứa dấu gạch dưới (_).` })
     else if (/[A-Z]/.test(id)) {
       out.push({ level: 'error', text: `${where}: ID phải viết thường, placeholder luôn đổi ID về chữ thường nên sẽ không khớp.` })
@@ -96,11 +96,11 @@ const issues = computed(() => {
     if (id && seen.has(id)) out.push({ level: 'error', text: `${where}: ID bị trùng, YAML chỉ giữ lại một khung.` })
     seen.add(id)
     if (!f.from || !f.to) {
-      out.push({ level: 'error', text: `${where}: chưa chọn thời gian bắt đầu và kết thúc, plugin sẽ không đọc được cả file.` })
+      out.push({ level: 'error', text: `${where}: Chưa chọn thời gian bắt đầu và kết thúc, plugin sẽ không đọc được cả file.` })
     } else if (time(f.from) >= time(f.to)) {
-      out.push({ level: 'error', text: `${where}: thời gian kết thúc phải sau thời gian bắt đầu.` })
+      out.push({ level: 'error', text: `${where}: Thời gian kết thúc phải sau thời gian bắt đầu.` })
     } else if (now.value && time(f.to) < now.value) {
-      out.push({ level: 'warn', text: `${where}: đã kết thúc, giao dịch mới sẽ không được tính vào khung này.` })
+      out.push({ level: 'warn', text: `${where}: Đã kết thúc, giao dịch mới sẽ không được tính vào khung này.` })
     }
   })
   return out
@@ -186,7 +186,7 @@ function doImport() {
   importError.value = ''
   try {
     const doc = parse(importText.value) ?? {}
-    if (typeof doc !== 'object' || Array.isArray(doc)) throw new Error('nội dung không phải danh sách khung thời gian')
+    if (typeof doc !== 'object' || Array.isArray(doc)) throw new Error('Nội dung không phải danh sách khung thời gian')
     const bad: string[] = []
     const readTime = (id: string, key: string, v: unknown) => {
       try {

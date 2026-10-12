@@ -14,6 +14,6 @@ Tạo nội dung cho 3 file bằng form, không cần nhớ cú pháp YAML:
 | Phần thưởng top nạp <Badge type="tip" text="Premium" /> | `phanthuongtop.yml` | [Phần thưởng top nạp](/docs/phan-thuong/phan-thuong-top) |
 
 - Có thể nhập file đang có để sửa tiếp, ở mục **Nhập từ file** cuối trang.
-- Công cụ cảnh báo các lỗi thường gặp: số tiền không hợp lệ, ID khung thời gian có dấu `_`, khoảng hạng trùng nhau, lệnh có dấu `/` ở đầu.
+- Công cụ cảnh báo các lỗi thường gặp: Số tiền không hợp lệ, ID khung thời gian có dấu `_`, khoảng hạng trùng nhau, lệnh có dấu `/` ở đầu.
 
 <MilestoneBuilder />

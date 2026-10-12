@@ -38,7 +38,7 @@ const logo = (id: string) => withBase(`/gateways/${id}.png`)
 <template>
   <section class="home-section home-gateways" aria-labelledby="home-gateways-title">
     <h2 id="home-gateways-title">Tích hợp sẵn các cổng thanh toán</h2>
-    <p>Chọn cổng bạn đang dùng, DotMan lo phần còn lại: kiểm tra giao dịch, cộng point và chạy lệnh thưởng.</p>
+    <p>Chọn cổng bạn đang dùng, DotMan lo phần còn lại: Kiểm tra giao dịch, cộng point và chạy lệnh thưởng.</p>
 
     <div v-for="g in groups" :key="g.key" class="group">
       <h3 class="group-title">

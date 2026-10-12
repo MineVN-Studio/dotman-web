@@ -20,20 +20,20 @@ Nhập số tiền nạp để xem người chơi nhận được bao nhiêu poi
 | Chuyển khoản | `(số tiền / 1000) × (point-base + point-extra + point-base × tỉ lệ khuyến mãi)` |
 | Nạp thủ công | `(số tiền / 1000) × (point-base + point-extra + point-base × tỉ lệ khuyến mãi)` |
 
-- **Point theo mệnh giá:** mục `donate-amounts` trong `config.yml`.
-- **`point-base`:** số point tiêu chuẩn trên mỗi 1000đ, dùng để tính khuyến mãi.
-- **`point-extra`:** số point nhận thêm trên mỗi 1000đ, **không** được nhân khuyến mãi.
-  - Chuyển khoản: đặt trong `banking.yml`.
-  - Nạp thủ công: đặt trong mục `manual` của `config.yml`.
-- **Tỉ lệ khuyến mãi:** khuyến mãi đang áp dụng theo [lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai).
+- **Point theo mệnh giá:** Mục `donate-amounts` trong `config.yml`.
+- **`point-base`:** Số point tiêu chuẩn trên mỗi 1000đ, dùng để tính khuyến mãi.
+- **`point-extra`:** Số point nhận thêm trên mỗi 1000đ, **không** được nhân khuyến mãi.
+  - Chuyển khoản: Đặt trong `banking.yml`.
+  - Nạp thủ công: Đặt trong mục `manual` của `config.yml`.
+- **Tỉ lệ khuyến mãi:** Khuyến mãi đang áp dụng theo [lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai).
   - Với thẻ cào và chuyển khoản, lần nạp đầu được cộng thêm tỉ lệ [khuyến mãi nạp lần đầu](/docs/khuyen-mai/nap-lan-dau).
 - Kết quả được làm tròn xuống số nguyên.
 
 ::: tip Vì sao chuyển khoản nhận nhiều point hơn thẻ cào?
 Với config mặc định (`point-base: 1`, `point-extra: 0.5`), mỗi 1000đ chuyển khoản nhận 1,5 point, tức nhiều hơn thẻ cào cùng số tiền 50%.
 
-- Nạp 10.000đ qua chuyển khoản, không khuyến mãi, không phải lần đầu: nhận **15 point**.
-- Nạp thẻ 10.000đ cùng điều kiện: nhận **10 point** (theo `donate-amounts` mặc định).
+- Nạp 10.000đ qua chuyển khoản, không khuyến mãi, không phải lần đầu: Nhận **15 point**.
+- Nạp thẻ 10.000đ cùng điều kiện: Nhận **10 point** (theo `donate-amounts` mặc định).
 
 Muốn chuyển khoản nhận bằng thẻ cào, đặt `point-extra: 0` trong `banking.yml`.
 :::

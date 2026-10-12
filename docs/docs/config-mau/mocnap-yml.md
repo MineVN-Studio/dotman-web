@@ -1,6 +1,6 @@
 ---
 title: "mocnap.yml mẫu của DotMan"
-description: "File mocnap.yml mặc định của DotMan: mốc nạp cá nhân, thưởng khi tổng nạp của người chơi đạt mốc."
+description: "File mocnap.yml mặc định của DotMan: Mốc nạp cá nhân, thưởng khi tổng nạp của người chơi đạt mốc."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

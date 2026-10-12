@@ -91,7 +91,7 @@ Lấy tổng dữ liệu của tất cả người chơi trên server.
 
 ## Khung thời gian (TimeFrame) <Badge type="tip" text="Premium" />
 
-Dùng cho các sự kiện có thời gian bắt đầu và kết thúc tùy chỉnh (ví dụ: sự kiện Giáng sinh, Tết, ...). Xem cách tạo tại [Khung thời gian](/docs/phan-thuong/khung-thoi-gian).
+Dùng cho các sự kiện có thời gian bắt đầu và kết thúc tùy chỉnh (ví dụ: Sự kiện Giáng sinh, Tết, ...). Xem cách tạo tại [Khung thời gian](/docs/phan-thuong/khung-thoi-gian). Công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian) tạo sẵn các placeholder này cho từng khung.
 
 **Cú pháp dữ liệu người chơi:** `%dotman_dataframe_<frame-id>_<key>%`
 

@@ -73,7 +73,7 @@ function pickSlot(dayIndex: number, slot: number) {
 }
 function slotTitle(day: { label: string; date: string }, slot: { applied?: PromoEntry; others: PromoEntry[]; start: number }) {
   const time = `${day.label} ${day.date} ${formatMinute(slot.start)}-${formatMinute(slot.start + SLOT_MINUTES)}`
-  if (!slot.applied) return `${time}: không có khuyến mãi`
+  if (!slot.applied) return `${time}: Không có khuyến mãi`
   const extra = slot.others.length ? `\nBị bỏ qua: ${slot.others.map((o) => stripColors(o.name)).join(', ')}` : ''
   return `${time}: ${stripColors(slot.applied.name)} (+${Math.round(slot.applied.rate! * 100)}%)${extra}`
 }

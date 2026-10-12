@@ -1,6 +1,6 @@
 ---
 title: Cấu hình chung config.yml của DotMan
-description: 'Các tùy chọn chung trong config.yml của DotMan: tùy chọn cơ bản, cooldown chống spam và tin nhắn trong messages.yml.'
+description: 'Các tùy chọn chung trong config.yml của DotMan: Tùy chọn cơ bản, cooldown chống spam và tin nhắn trong messages.yml.'
 ---
 
 # Cấu hình chung

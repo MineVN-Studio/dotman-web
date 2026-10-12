@@ -7,8 +7,8 @@ description: 'Tạo banking.yml và file cổng ngân hàng MBBank, PayOS, SePay
 
 Điền thông tin tài khoản và chọn cổng ngân hàng để tạo 2 file cấu hình chuyển khoản:
 
-- `banking.yml`: cấu hình chung, cách tính point và lệnh thưởng.
-- `providers/banking/<provider>.yml`: thông tin tài khoản và API của cổng ngân hàng.
+- `banking.yml`: Cấu hình chung, cách tính point và lệnh thưởng.
+- `providers/banking/<provider>.yml`: Thông tin tài khoản và API của cổng ngân hàng.
 
 Công cụ kiểm tra các lỗi thường gặp, như còn giữ giá trị mẫu, số tiền tối thiểu không hợp lệ, mức nạp bị trùng.
 

@@ -1,6 +1,6 @@
 ---
 title: "banking.yml mẫu của DotMan Premium"
-description: "File banking.yml mặc định của DotMan Premium: cấu hình chung cho chuyển khoản ngân hàng qua mã QR."
+description: "File banking.yml mặc định của DotMan Premium: Cấu hình chung cho chuyển khoản ngân hàng qua mã QR."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->
@@ -11,7 +11,7 @@ Cấu hình chung cho chuyển khoản ngân hàng.
 
 Hướng dẫn chi tiết: [Chuyển khoản ngân hàng](/docs/nap-tien/ngan-hang).
 
-Công cụ hỗ trợ: [Tính toán point](/docs/cong-cu/tinh-toan-point).
+Công cụ hỗ trợ: [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang), [Tính toán point](/docs/cong-cu/tinh-toan-point).
 
 ::: code-group
 

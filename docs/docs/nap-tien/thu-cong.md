@@ -27,7 +27,7 @@ Point nhận = (số tiền / 1000) × (point-base + point-extra + point-base ×
 ```
 
 - Tỉ lệ khuyến mãi lấy từ [lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai).
-- Ví dụ: nạp 100.000đ, `point-base: 1`, `point-extra: 0.5`, khuyến mãi 50%:
+- Ví dụ: Nạp 100.000đ, `point-base: 1`, `point-extra: 0.5`, khuyến mãi 50%:
 
 ```
 Point nhận = 100 × (1 + 0.5 + 1 × 0.5) = 200 point

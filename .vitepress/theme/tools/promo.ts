@@ -52,7 +52,7 @@ function has(map: Record<string, unknown>, key: string) {
 
 function requireValue(map: Record<string, unknown>, key: string) {
   const v = map[key]
-  if (v === null || v === undefined) throw new Error(`${key} rỗng`)
+  if (v === null || v === undefined) throw new Error(`Mục ${key} rỗng`)
   return v
 }
 
@@ -61,18 +61,18 @@ function parseTime(map: Record<string, unknown>, key: string): number | null {
   try {
     return parseConfigDateTime(String(requireValue(map, key)))
   } catch (e: any) {
-    throw new Error(e.message.endsWith('rỗng') ? e.message : `${key} ${e.message}`)
+    throw new Error(e.message.endsWith('rỗng') ? e.message : `Mục ${key} ${e.message}`)
   }
 }
 
 export function parseDays(value: unknown): Set<DayCode> {
   const items = Array.isArray(value) ? value.map((x) => String(x)) : String(value).split(',')
   const trimmed = items.map((x) => x.trim()).filter((x) => x.length > 0)
-  if (trimmed.length === 0) throw new Error('days rỗng')
+  if (trimmed.length === 0) throw new Error('Mục days rỗng')
   return new Set(
     trimmed.map((item) => {
       const n = /^[+-]?\d+$/.test(item) ? Number(item) : NaN
-      if (!(n >= 2 && n <= 8)) throw new Error(`thứ '${item}' không hợp lệ, chỉ nhận 2..8 (8 = chủ nhật)`)
+      if (!(n >= 2 && n <= 8)) throw new Error(`Thứ '${item}' không hợp lệ, chỉ nhận 2..8 (8 = chủ nhật)`)
       return n as DayCode
     }),
   )
@@ -80,15 +80,15 @@ export function parseDays(value: unknown): Set<DayCode> {
 
 export function parseHours(value: string): [number, number] {
   const m = value.match(/^(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})$/)
-  if (!m) throw new Error(`hours '${value}' không đúng định dạng HH:mm-HH:mm`)
+  if (!m) throw new Error(`Mục hours '${value}' không đúng định dạng HH:mm-HH:mm`)
   const [sh, sm, eh, em] = m.slice(1).map(Number)
   const start = sh * 60 + sm
   const end = eh * 60 + em
   if (sm >= 60 || em >= 60 || start < 0 || start >= MINUTES_PER_DAY || end < 1 || end > MINUTES_PER_DAY) {
-    throw new Error(`hours '${value}' có giờ/phút không hợp lệ`)
+    throw new Error(`Mục hours '${value}' có giờ/phút không hợp lệ`)
   }
   if (start >= end) {
-    throw new Error(`hours '${value}' phải có giờ bắt đầu trước giờ kết thúc, không hỗ trợ qua nửa đêm`)
+    throw new Error(`Mục hours '${value}' phải có giờ bắt đầu trước giờ kết thúc, không hỗ trợ qua nửa đêm`)
   }
   return [start, end]
 }
@@ -99,10 +99,10 @@ function parseSchedule(map: Record<string, unknown>): Schedule {
   const to = parseTime(map, 'to')
 
   if (from !== null && to !== null && from >= to) {
-    throw new Error(`thời gian bắt đầu phải trước thời gian kết thúc: ${map.from} >= ${map.to}`)
+    throw new Error(`Thời gian bắt đầu phải trước thời gian kết thúc: ${map.from} >= ${map.to}`)
   }
   if (!hasWeekly) {
-    if (from === null || to === null) throw new Error('thiếu from/to hoặc days/hours')
+    if (from === null || to === null) throw new Error('Thiếu from/to hoặc days/hours')
     return { kind: 'fixed', from, to }
   }
   const days = has(map, 'days') ? parseDays(requireValue(map, 'days')) : new Set(ALL_DAYS)
@@ -120,9 +120,9 @@ export function parsePromos(doc: unknown): ParsedPromos {
     const map = item && typeof item === 'object' && !Array.isArray(item) ? (item as Record<string, unknown>) : null
     const name = typeof map?.name === 'string' ? (map.name as string) : ''
     try {
-      if (!map) throw new Error('mỗi khuyến mãi phải là một mục có name, rate và thời gian')
-      if (typeof map.name !== 'string') throw new Error('thiếu name')
-      if (typeof map.rate !== 'number') throw new Error('thiếu rate hoặc rate không phải số')
+      if (!map) throw new Error('Mỗi khuyến mãi phải là một mục có name, rate và thời gian')
+      if (typeof map.name !== 'string') throw new Error('Thiếu name')
+      if (typeof map.rate !== 'number') throw new Error('Thiếu rate hoặc rate không phải số')
       return { index, name, rate: map.rate, schedule: parseSchedule(map) }
     } catch (e: any) {
       return { index, name, error: e.message }

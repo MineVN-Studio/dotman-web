@@ -36,13 +36,15 @@ mocnap:
 
 Với `day`, `week`, `month`, người chơi nhận lại thưởng ở mỗi kỳ mới nếu đạt mốc lần nữa.
 
+Chưa có khung thời gian? Tạo bằng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian). Công cụ có sẵn mẫu `type: frame-<id>` cho từng khung.
+
 ## Cách tính
 
 - Tổng nạp gồm thẻ cào (theo mệnh giá), chuyển khoản và nạp thủ công.
 - Thưởng được trao **một lần** ngay khi tổng nạp vượt qua mốc.
-  - Ví dụ mốc 500.000đ: người chơi đã nạp 400.000đ, nạp thêm 200.000đ thì nhận thưởng.
+  - Ví dụ mốc 500.000đ: Người chơi đã nạp 400.000đ, nạp thêm 200.000đ thì nhận thưởng.
 - Một lần nạp vượt qua nhiều mốc thì nhận thưởng của tất cả các mốc đó.
-- Người chơi đang offline khi đạt mốc (ví dụ tiền chuyển khoản về sau khi thoát game): lệnh thưởng được [giữ lại và chạy khi vào lại](/docs/quan-tri/lenh-thuong-offline) <Badge type="tip" text="Premium" />.
+- Người chơi đang offline khi đạt mốc (ví dụ tiền chuyển khoản về sau khi thoát game): Lệnh thưởng được [giữ lại và chạy khi vào lại](/docs/quan-tri/lenh-thuong-offline) <Badge type="tip" text="Premium" />.
 
 ## Ví dụ
 

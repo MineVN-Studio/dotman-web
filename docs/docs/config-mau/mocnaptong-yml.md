@@ -1,6 +1,6 @@
 ---
 title: "mocnaptong.yml mẫu của DotMan"
-description: "File mocnaptong.yml mặc định của DotMan: mốc nạp tổng của toàn server, kèm bossbar hiển thị tiến độ."
+description: "File mocnaptong.yml mặc định của DotMan: Mốc nạp tổng của toàn server, kèm bossbar hiển thị tiến độ."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

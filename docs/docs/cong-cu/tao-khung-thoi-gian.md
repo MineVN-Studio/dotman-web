@@ -1,6 +1,6 @@
 ---
 title: Tạo khung thời gian
-description: 'Tạo khungthoigian.yml cho DotMan Premium: khung thời gian sự kiện như Tết, Giáng sinh để đua top và đặt mốc nạp riêng.'
+description: 'Tạo khungthoigian.yml cho DotMan Premium: Khung thời gian sự kiện như Tết, Giáng sinh để đua top và đặt mốc nạp riêng.'
 ---
 
 # Tạo khung thời gian <Badge type="tip" text="Premium" />

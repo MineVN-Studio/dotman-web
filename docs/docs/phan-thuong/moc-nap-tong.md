@@ -33,6 +33,7 @@ mocnaptong:
 
 - `type: all` tính tổng nạp của server từ khi bắt đầu dùng DotMan.
 - `day`, `week`, `month`, `frame-<id>` chỉ có ở bản Premium.
+- `frame-<id>` dùng ID trong `khungthoigian.yml`, tạo bằng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian).
 
 ## Cách hoạt động
 

@@ -1,6 +1,6 @@
 ---
 title: Cài đặt DotMan lên server Minecraft
-description: 'Hướng dẫn cài đặt DotMan: tải plugin cùng MineVNLib và PlayerPoints, nhập license, đặt tên server, chọn database H2 hoặc MySQL.'
+description: 'Hướng dẫn cài đặt DotMan: Tải plugin cùng MineVNLib và PlayerPoints, nhập license, đặt tên server, chọn database H2 hoặc MySQL.'
 ---
 
 # Cài đặt
@@ -31,7 +31,7 @@ Mỗi phiên bản MineVNLib có 2 file jar:
 
 - **Nên dùng bản thường.** Nếu không chắc, hãy chọn bản này.
 - Chỉ dùng bản `no-kotlin` khi server đã có plugin khác cung cấp sẵn thư viện Kotlin.
-  - Ví dụ: gặp lỗi xung đột Kotlin (`NoSuchMethodError`, `LinkageError` liên quan tới `kotlin.*`) khi dùng bản thường.
+  - Ví dụ: Gặp lỗi xung đột Kotlin (`NoSuchMethodError`, `LinkageError` liên quan tới `kotlin.*`) khi dùng bản thường.
 - Chỉ cài **một** trong hai file, không cài cả hai.
 
 ## Cài đặt DotMan

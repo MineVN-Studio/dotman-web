@@ -33,7 +33,7 @@ Danh sách đầy đủ tính năng của DotMan, ở hai phiên bản miễn ph
 
 - **[Lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai)**
   - Khuyến mãi theo ngày cố định, ví dụ các ngày lễ.
-  - Khuyến mãi lặp lại theo tuần: theo thứ, theo khung giờ, hoặc kết hợp cả hai.
+  - Khuyến mãi lặp lại theo tuần: Theo thứ, theo khung giờ, hoặc kết hợp cả hai.
   - Nhiều khuyến mãi cùng lúc thì tự áp dụng khuyến mãi có tỉ lệ cao nhất.
   - Khuyến mãi nhanh trong `config.yml`, không cần lên lịch.
 - **[Thông báo khuyến mãi](/docs/khuyen-mai/thong-bao)**
@@ -104,13 +104,15 @@ Danh sách đầy đủ tính năng của DotMan, ở hai phiên bản miễn ph
 
 ## Công cụ
 
-Các công cụ giúp dễ dàng tạo khuyến mãi, mốc nạp, placeholder, Discord embed và tính toán point.
+Các công cụ giúp dễ dàng tạo khuyến mãi, khung thời gian, mốc nạp, placeholder, Discord embed, cấu hình ngân hàng và tính toán point.
 
-- **[Tính toán point](/docs/cong-cu/tinh-toan-point)**: tính số point nhận được theo từng phương thức nạp.
-- **[Tạo & kiểm tra lịch khuyến mãi](/docs/cong-cu/lich-khuyen-mai)**: tạo `khuyenmai.yml` bằng form, tìm mục lỗi, xem lịch áp dụng theo tuần.
-- **[Tạo placeholder](/docs/cong-cu/tao-placeholder)**: tạo placeholder PlaceholderAPI, kể cả danh sách top cho hologram.
-- **[Thiết kế Discord Embed](/docs/cong-cu/thiet-ke-discord-embed)**: thiết kế tin nhắn trên Discohook rồi chuyển sang cấu hình Discord webhook.
-- **[Tạo mốc nạp & thưởng top](/docs/cong-cu/moc-nap-va-thuong-top)**: tạo `mocnap.yml`, `mocnaptong.yml`, `phanthuongtop.yml` bằng form.
+- **[Tính toán point](/docs/cong-cu/tinh-toan-point)**: Tính số point nhận được theo từng phương thức nạp.
+- **[Tạo & kiểm tra lịch khuyến mãi](/docs/cong-cu/lich-khuyen-mai)**: Tạo `khuyenmai.yml` bằng form, tìm mục lỗi, xem lịch áp dụng theo tuần.
+- **[Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian)**: Tạo `khungthoigian.yml` cho sự kiện, kèm placeholder và mốc nạp theo khung.
+- **[Tạo placeholder](/docs/cong-cu/tao-placeholder)**: Tạo placeholder PlaceholderAPI, kể cả danh sách top cho hologram.
+- **[Thiết kế Discord Embed](/docs/cong-cu/thiet-ke-discord-embed)**: Thiết kế tin nhắn trên Discohook rồi chuyển sang cấu hình Discord webhook.
+- **[Tạo mốc nạp & thưởng top](/docs/cong-cu/moc-nap-va-thuong-top)**: Tạo `mocnap.yml`, `mocnaptong.yml`, `phanthuongtop.yml` bằng form.
+- **[Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang)**: Tạo `banking.yml` và file provider, chuyển cấu hình cũ sang cấu trúc mới.
 
 ## So sánh bản miễn phí và Premium
 

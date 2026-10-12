@@ -325,16 +325,16 @@ const issues = computed(() => {
   // point và lệnh
   if (!(Number(general.pointBase) >= 0)) err('point-base không được âm.')
   if (!(Number(general.pointExtra) >= 0)) err('point-extra không được âm.')
-  if (slashCommands(general.commands).length) warn('Lệnh sau khi nạp: lệnh chạy từ console, không cần dấu / ở đầu.')
+  if (slashCommands(general.commands).length) warn('Lệnh sau khi nạp: Lệnh chạy từ console, không cần dấu / ở đầu.')
   const seen = new Set<number>()
   tiers.value.forEach((t) => {
     const amount = Number(t.amount)
     const where = `Mốc ${amount ? amount.toLocaleString('vi-VN') : '?'}đ`
-    if (!Number.isInteger(amount) || amount <= 0) err(`${where}: số tiền phải là số nguyên lớn hơn 0.`)
-    else if (seen.has(amount)) err(`${where}: bị trùng, YAML chỉ giữ lại một mốc.`)
+    if (!Number.isInteger(amount) || amount <= 0) err(`${where}: Số tiền phải là số nguyên lớn hơn 0.`)
+    else if (seen.has(amount)) err(`${where}: Bị trùng, YAML chỉ giữ lại một mốc.`)
     seen.add(amount)
-    if (lines(t.commands).length === 0) warn(`${where}: chưa có lệnh nào.`)
-    if (slashCommands(t.commands).length) warn(`${where}: lệnh chạy từ console, không cần dấu / ở đầu.`)
+    if (lines(t.commands).length === 0) warn(`${where}: Chưa có lệnh nào.`)
+    if (slashCommands(t.commands).length) warn(`${where}: Lệnh chạy từ console, không cần dấu / ở đầu.`)
   })
 
   if (proxy.enabled) {
@@ -409,7 +409,7 @@ function doImport() {
   importInfo.value = ''
   try {
     const doc = parse(importText.value)
-    if (!doc || typeof doc !== 'object' || Array.isArray(doc)) throw new Error('nội dung không phải file YAML cấu hình')
+    if (!doc || typeof doc !== 'object' || Array.isArray(doc)) throw new Error('Nội dung không phải file YAML cấu hình')
     const isBanking = ['provider', 'point-base', 'point-extra', 'minimum-donate-commands', 'transaction-expiry'].some((k) => k in doc)
     if (isBanking && Number(doc['config-version']) === 2) {
       const p = String(doc.provider ?? '').trim().toUpperCase().replace('_', '-') as Provider
@@ -429,7 +429,7 @@ function doImport() {
         : `Đã chuyển banking.yml cấu trúc cũ sang cấu trúc mới, cổng ${p}.`
     } else {
       const p = detectProvider(doc)
-      if (!p) throw new Error('không nhận ra đây là banking.yml hay file providers/banking/*.yml')
+      if (!p) throw new Error('Không nhận ra đây là banking.yml hay file providers/banking/*.yml')
       applyProvider(p, (k) => doc[k], doc.bank)
       importInfo.value = `Đã nhập ${PROVIDERS.find((x) => x.value === p)!.file}.`
     }
@@ -564,7 +564,7 @@ function doImport() {
         </label>
       </div>
       <span class="tool-hint">
-        Nạp 100.000đ, không khuyến mãi: nhận {{ pointExample }} point.
+        Nạp 100.000đ, không khuyến mãi: Nhận {{ pointExample }} point.
         Tính thử với khuyến mãi tại <a href="/docs/cong-cu/tinh-toan-point">Tính toán point</a>.
       </span>
       <label class="tool-field">

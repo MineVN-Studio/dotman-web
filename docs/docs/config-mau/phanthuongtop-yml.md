@@ -1,6 +1,6 @@
 ---
 title: "phanthuongtop.yml mẫu của DotMan Premium"
-description: "File phanthuongtop.yml mặc định của DotMan Premium: phần thưởng tự động cho top nạp theo ngày, tuần, tháng."
+description: "File phanthuongtop.yml mặc định của DotMan Premium: Phần thưởng tự động cho top nạp theo ngày, tuần, tháng."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

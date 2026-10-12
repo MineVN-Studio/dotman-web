@@ -21,10 +21,15 @@ Bên cạnh thẻ cào, DotMan hỗ trợ nạp tiền qua chuyển khoản ngâ
 
 Cấu hình gồm 2 phần:
 
-- `banking.yml`: cấu hình chung (bật/tắt, cách tính point, lệnh thưởng...).
-- `providers/banking/<provider>.yml`: thông tin tài khoản và API của cổng ngân hàng đang dùng.
+- `banking.yml`: Cấu hình chung (bật/tắt, cách tính point, lệnh thưởng...).
+- `providers/banking/<provider>.yml`: Thông tin tài khoản và API của cổng ngân hàng đang dùng.
 
-Tạo nhanh cả 2 file bằng công cụ [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang).
+::: tip Tạo nhanh bằng công cụ
+Dùng công cụ [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang) để tạo cấu hình nhanh và dễ dàng hơn.
+
+- Công cụ kiểm tra sẵn các lỗi thường gặp, như còn giữ giá trị mẫu, số tiền tối thiểu không hợp lệ.
+- Công cụ cũng chuyển được `banking.yml` cấu trúc cũ sang cấu trúc mới.
+:::
 
 Các bước:
 
@@ -123,8 +128,8 @@ url-cancel: 'https://minevn.net'
 - Lấy `client-id`, `api-key`, `checksum-key` tại [my.payos.vn](https://my.payos.vn/):
   - **Kênh thanh toán** → **Thông tin kênh thanh toán**.
 - Thông tin tài khoản tùy loại kênh PayOS:
-  - **PayOS OpenAPI:** điền đầy đủ `account`, `account-qr`, `account-name`.
-  - **PayOS VietQR Pro:** chỉ cần `account-name`, số tài khoản do hệ thống tự tạo. `account`, `account-qr` để nguyên giá trị mẫu hoặc để trống.
+  - **PayOS OpenAPI:** Điền đầy đủ `account`, `account-qr`, `account-name`.
+  - **PayOS VietQR Pro:** Chỉ cần `account-name`, số tài khoản do hệ thống tự tạo. `account`, `account-qr` để nguyên giá trị mẫu hoặc để trống.
 - Ngoài mã QR, người chơi nhận thêm link thanh toán của PayOS nếu không quét được mã.
 - Video hướng dẫn: [Cấu hình PayOS](https://www.youtube.com/watch?v=UJ4tpiOLR_U).
 
@@ -192,7 +197,7 @@ Tính thử với cấu hình của bạn bằng công cụ [Tính toán point](
 
 - Tỉ lệ khuyến mãi lấy từ [lịch khuyến mãi](/docs/khuyen-mai/lich-khuyen-mai).
   - Nếu là lần nạp đầu tiên, cộng thêm tỉ lệ [khuyến mãi nạp lần đầu](/docs/khuyen-mai/nap-lan-dau).
-- Ví dụ: nạp 10.000đ, `point-base: 1`, `point-extra: 0.5`, khuyến mãi 50%:
+- Ví dụ: Nạp 10.000đ, `point-base: 1`, `point-extra: 0.5`, khuyến mãi 50%:
 
 ```
 Point nhận = 10 × (1 + 0.5 + 1 × 0.5) = 20 point
@@ -291,7 +296,9 @@ Các bản DotMan cũ để toàn bộ thông tin ngân hàng trong `banking.yml
 3. Đặt `provider` và điền thông tin tài khoản vào `providers/banking/<provider>.yml`.
 4. Chạy `/dotman reload`.
 
-Công cụ [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang) có thể tự chuyển `banking.yml` cấu trúc cũ sang cấu trúc mới.
+::: tip Chuyển tự động
+Dán `banking.yml` cũ vào mục **Nhập từ file đang có** của công cụ [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang). Công cụ tự tách ra `banking.yml` mới và file của provider ngân hàng đang bật.
+:::
 
 
 Nội dung mặc định xem tại [Config mẫu: banking.yml](/docs/config-mau/banking-yml).

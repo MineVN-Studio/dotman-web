@@ -147,17 +147,17 @@ const output = computed(() => {
 const issues = computed(() => {
   const out: { level: 'error' | 'warn'; text: string }[] = []
   const checkCommands = (where: string, text: string) => {
-    if (lines(text).length === 0) out.push({ level: 'warn', text: `${where}: chưa có lệnh nào.` })
-    if (slashCommands(text).length) out.push({ level: 'warn', text: `${where}: lệnh chạy từ console, không cần dấu / ở đầu.` })
+    if (lines(text).length === 0) out.push({ level: 'warn', text: `${where}: Chưa có lệnh nào.` })
+    if (slashCommands(text).length) out.push({ level: 'warn', text: `${where}: Lệnh chạy từ console, không cần dấu / ở đầu.` })
   }
   if (tab.value !== 'phanthuongtop') {
     milestones.value.forEach((m, i) => {
       const where = `Mốc ${i + 1}`
-      if (!(Number(m.amount) > 0)) out.push({ level: 'error', text: `${where}: số tiền phải lớn hơn 0.` })
+      if (!(Number(m.amount) > 0)) out.push({ level: 'error', text: `${where}: Số tiền phải lớn hơn 0.` })
       // plugin đọc amount kiểu Int
-      if (Number(m.amount) > 2147483647) out.push({ level: 'error', text: `${where}: số tiền tối đa là 2.147.483.647.` })
+      if (Number(m.amount) > 2147483647) out.push({ level: 'error', text: `${where}: Số tiền tối đa là 2.147.483.647.` })
       if (m.type === 'frame') {
-        if (!m.frameId.trim()) out.push({ level: 'error', text: `${where}: chưa nhập ID khung thời gian.` })
+        if (!m.frameId.trim()) out.push({ level: 'error', text: `${where}: Chưa nhập ID khung thời gian.` })
         else if (m.frameId.includes('_')) out.push({ level: 'error', text: `${where}: ID khung thời gian không được chứa dấu gạch dưới (_).` })
       }
       checkCommands(where, m.commands)
@@ -170,16 +170,16 @@ const issues = computed(() => {
       const where = `${s.label}, hạng "${r.rank}"`
       const m = r.rank.trim().match(/^(\d+)(?:-(\d+))?$/)
       if (!m) {
-        out.push({ level: 'error', text: `${where}: hạng phải là một số (1) hoặc một khoảng (4-10).` })
+        out.push({ level: 'error', text: `${where}: Hạng phải là một số (1) hoặc một khoảng (4-10).` })
         return
       }
       const from = Number(m[1])
       const to = Number(m[2] ?? m[1])
-      if (from < 1 || from > to) out.push({ level: 'error', text: `${where}: khoảng hạng không hợp lệ.` })
-      if (to > 100) out.push({ level: 'warn', text: `${where}: chỉ xét tới hạng 100, các hạng lớn hơn không có tác dụng.` })
+      if (from < 1 || from > to) out.push({ level: 'error', text: `${where}: Khoảng hạng không hợp lệ.` })
+      if (to > 100) out.push({ level: 'warn', text: `${where}: Chỉ xét tới hạng 100, các hạng lớn hơn không có tác dụng.` })
       const overlap = ranges.find((x) => from <= x.to && x.from <= to)
       if (overlap) {
-        out.push({ level: 'warn', text: `${where}: trùng với hạng "${overlap.rank}", người chơi chỉ nhận thưởng của mục đứng trước.` })
+        out.push({ level: 'warn', text: `${where}: Trùng với hạng "${overlap.rank}", người chơi chỉ nhận thưởng của mục đứng trước.` })
       }
       ranges.push({ from, to, rank: r.rank })
       checkCommands(where, r.commands)
@@ -201,7 +201,7 @@ function doImport() {
     const cmds = (v: unknown) => (Array.isArray(v) ? v.map(String).join('\n') : '')
     if (tab.value !== 'phanthuongtop') {
       const list = doc[tab.value]
-      if (!Array.isArray(list)) throw new Error(`không tìm thấy danh sách "${tab.value}:"`)
+      if (!Array.isArray(list)) throw new Error(`Không tìm thấy danh sách "${tab.value}:"`)
       const parsed = list.map((it: any) => {
         const type = String(it?.type ?? 'all')
         return milestone({
@@ -259,6 +259,7 @@ const currentFile = computed(() => TABS.find((t) => t.value === tab.value)!.file
           <label v-if="m.type === 'frame'" class="tool-field">
             <span class="tool-label">ID khung thời gian</span>
             <input v-model="m.frameId" type="text" placeholder="giang-sinh-2026" />
+            <span class="tool-hint">Chưa có thì tạo bằng <a href="/docs/cong-cu/tao-khung-thoi-gian">Tạo khung thời gian</a>.</span>
           </label>
           <label class="tool-field">
             <span class="tool-label">Số tiền cần đạt (VNĐ)</span>

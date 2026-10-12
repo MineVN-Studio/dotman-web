@@ -45,7 +45,7 @@ Mỗi webhook trong danh sách `discord-hooks` có cấu trúc sau:
 | `footer.icon_url` | Icon footer |
 
 ::: tip Thiết kế embed trực quan
-Không cần tự viết YAML: dùng công cụ [Thiết kế Discord Embed](/docs/cong-cu/thiet-ke-discord-embed) để thiết kế tin nhắn trực quan rồi chuyển thẳng sang cấu hình của DotMan.
+Không cần tự viết YAML: Dùng công cụ [Thiết kế Discord Embed](/docs/cong-cu/thiet-ke-discord-embed) để thiết kế tin nhắn trực quan rồi chuyển thẳng sang cấu hình của DotMan.
 :::
 
 ## Placeholder

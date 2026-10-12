@@ -1,6 +1,6 @@
 ---
 title: "discord.yml mẫu của DotMan"
-description: "File discord.yml mặc định của DotMan: thông báo nạp tiền qua Discord webhook dạng embed."
+description: "File discord.yml mặc định của DotMan: Thông báo nạp tiền qua Discord webhook dạng embed."
 ---
 
 <!-- File này được sinh tự động bởi scripts/sync-config-mau.mjs, không sửa tay -->

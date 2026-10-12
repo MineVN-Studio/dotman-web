@@ -20,10 +20,10 @@ DotMan giữ các lệnh này lại trong database và chạy khi người chơi
 
 Các lệnh khác vẫn chạy ngay như bình thường:
 
-- Lệnh nạp thẻ cào (`donate-commands`): người chơi luôn online khi gửi thẻ.
+- Lệnh nạp thẻ cào (`donate-commands`): Người chơi luôn online khi gửi thẻ.
 - Lệnh nạp thủ công (`manual.commands`).
-- Lệnh mốc nạp tổng server (`mocnaptong.yml`): không gắn với người chơi nào.
-- Phần thưởng top nạp: được trao khi người chơi online, xem [Phần thưởng top nạp](/docs/phan-thuong/phan-thuong-top#thoi-diem-trao-thuong).
+- Lệnh mốc nạp tổng server (`mocnaptong.yml`): Không gắn với người chơi nào.
+- Phần thưởng top nạp: Được trao khi người chơi online, xem [Phần thưởng top nạp](/docs/phan-thuong/phan-thuong-top#thoi-diem-trao-thuong).
 
 ## Cách hoạt động
 

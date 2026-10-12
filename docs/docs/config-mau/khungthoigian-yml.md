@@ -11,6 +11,8 @@ Khung thời gian cho sự kiện.
 
 Hướng dẫn chi tiết: [Khung thời gian](/docs/phan-thuong/khung-thoi-gian).
 
+Công cụ hỗ trợ: [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian).
+
 ::: code-group
 
 ```yaml [khungthoigian.yml]

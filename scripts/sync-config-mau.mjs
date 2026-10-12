@@ -70,6 +70,7 @@ const PAGES = [
       'providers/banking/payment-service.yml',
     ],
     guide: ['/docs/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang', 'Cổng thanh toán ngân hàng'],
+    tool: ['/docs/cong-cu/tao-cau-hinh-ngan-hang', 'Tạo cấu hình ngân hàng'],
     premium: true,
   },
   {
@@ -136,6 +137,7 @@ const PAGES = [
     metaDescription: 'File khungthoigian.yml mặc định của DotMan Premium: khung thời gian cho các sự kiện như Tết, Giáng sinh.',
     files: ['khungthoigian.yml'],
     guide: ['/docs/phan-thuong/khung-thoi-gian', 'Khung thời gian'],
+    tool: ['/docs/cong-cu/tao-khung-thoi-gian', 'Tạo khung thời gian'],
     premium: true,
   },
   {

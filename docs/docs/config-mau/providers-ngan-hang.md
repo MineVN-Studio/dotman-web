@@ -11,6 +11,8 @@ Cấu hình riêng của từng cổng thanh toán ngân hàng.
 
 Hướng dẫn chi tiết: [Cổng thanh toán ngân hàng](/docs/nap-tien/ngan-hang#cong-thanh-toan-ngan-hang).
 
+Công cụ hỗ trợ: [Tạo cấu hình ngân hàng](/docs/cong-cu/tao-cau-hinh-ngan-hang).
+
 ::: code-group
 
 ```yaml [providers/banking/mbbank.yml]

@@ -216,6 +216,10 @@ async function sendToChecker() {
           <span class="tool-hint">Muốn trọn ngày cuối thì đặt 23:59:59.</span>
         </label>
       </div>
+      <span v-if="d.kind === 'fixed'" class="tool-hint">
+        Khuyến mãi cho dịp sự kiện? Tạo thêm <a href="/docs/cong-cu/tao-khung-thoi-gian">khung thời gian</a>
+        cùng thời gian để đua top và đặt mốc nạp riêng cho sự kiện.
+      </span>
 
       <template v-else>
         <div class="schedule">

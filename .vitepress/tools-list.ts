@@ -14,6 +14,12 @@ export const TOOLS = [
     desc: 'Tạo khuyến mãi, hoặc dán file có sẵn để tìm mục lỗi và xem lịch áp dụng theo từng giờ trong tuần.',
   },
   {
+    text: 'Tạo khung thời gian',
+    link: '/docs/cong-cu/tao-khung-thoi-gian',
+    icon: 'CalendarRange',
+    desc: 'Tạo khung thời gian cho sự kiện như Tết, Giáng sinh để đua top và đặt mốc nạp riêng.',
+  },
+  {
     text: 'Tạo placeholder',
     link: '/docs/cong-cu/tao-placeholder',
     icon: 'Tags',
@@ -30,5 +36,11 @@ export const TOOLS = [
     link: '/docs/cong-cu/moc-nap-va-thuong-top',
     icon: 'Trophy',
     desc: 'Tạo mốc nạp, mốc nạp tổng và phần thưởng top.',
+  },
+  {
+    text: 'Tạo cấu hình ngân hàng',
+    link: '/docs/cong-cu/tao-cau-hinh-ngan-hang',
+    icon: 'Landmark',
+    desc: 'Tạo banking.yml và file cổng ngân hàng MBBank, PayOS, SePay, hoặc chuyển cấu hình cũ sang cấu trúc mới.',
   },
 ]

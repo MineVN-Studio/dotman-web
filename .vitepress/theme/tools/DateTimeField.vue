@@ -13,8 +13,10 @@ const props = withDefaults(
     placeholder?: string
     clearable?: boolean
     disabled?: boolean
+    /** chọn giây ở chế độ datetime, tắt khi file config chỉ nhận dd/MM/yyyy HH:mm */
+    seconds?: boolean
   }>(),
-  { mode: 'datetime', placeholder: '', clearable: false, disabled: false },
+  { mode: 'datetime', placeholder: '', clearable: false, disabled: false, seconds: true },
 )
 const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
 
@@ -38,7 +40,7 @@ const value = computed({
 })
 
 const isTime = computed(() => props.mode === 'time')
-const inputFormat = computed(() => (isTime.value ? 'HH:mm' : 'dd/MM/yyyy HH:mm:ss'))
+const inputFormat = computed(() => (isTime.value ? 'HH:mm' : props.seconds ? 'dd/MM/yyyy HH:mm:ss' : 'dd/MM/yyyy HH:mm'))
 </script>
 
 <template>
@@ -49,7 +51,7 @@ const inputFormat = computed(() => (isTime.value ? 'HH:mm' : 'dd/MM/yyyy HH:mm:s
       :time-picker="isTime"
       :model-type="isTime ? undefined : `yyyy-MM-dd'T'HH:mm:ss`"
       :formats="{ input: inputFormat }"
-      :time-config="{ enableSeconds: !isTime, is24: true }"
+      :time-config="{ enableSeconds: !isTime && seconds, is24: true }"
       :text-input="{ format: inputFormat }"
       :locale="vi"
       :week-start="1"

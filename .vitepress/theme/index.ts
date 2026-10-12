@@ -30,7 +30,9 @@ import './tools.css'
 // Các công cụ (kèm yaml, datepicker, date-fns) chỉ tải khi mở trang công cụ, không làm nặng các trang khác
 const tools = {
   PointCalculator: () => import('./components/PointCalculator.vue'),
+  BankingBuilder: () => import('./tools/BankingBuilder.vue'),
   DiscordConverter: () => import('./tools/DiscordConverter.vue'),
+  FrameBuilder: () => import('./tools/FrameBuilder.vue'),
   MilestoneBuilder: () => import('./tools/MilestoneBuilder.vue'),
   PlaceholderBuilder: () => import('./tools/PlaceholderBuilder.vue'),
   PromoTools: () => import('./tools/PromoTools.vue'),

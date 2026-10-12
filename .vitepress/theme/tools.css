@@ -74,6 +74,7 @@
 
 .tool input[type='text'],
 .tool input[type='number'],
+.tool input[type='password'],
 .tool input[type='datetime-local'],
 .tool input[type='date'],
 .tool textarea {

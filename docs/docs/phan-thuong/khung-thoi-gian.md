@@ -14,7 +14,7 @@ Tổng nạp của người chơi trong khung thời gian được theo dõi ri�
 
 ## Cấu hình
 
-Khai báo trong file `khungthoigian.yml`:
+Khai báo trong file `khungthoigian.yml`, hoặc tạo nhanh bằng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian):
 
 ```yaml [khungthoigian.yml]
 giang-sinh-2026:              # ID của khung thời gian
@@ -37,6 +37,7 @@ giang-sinh-2026:              # ID của khung thời gian
 :::
 
 - Chỉ các giao dịch trong khoảng `from` tới `to` được tính vào khung thời gian.
+  - `to` tính tới đúng phút đó, ví dụ `23:59` là hết lúc 23:59:00. Muốn trọn ngày cuối, đặt `00:00` của ngày hôm sau.
 - Dữ liệu khung thời gian lưu riêng, không ảnh hưởng tới dữ liệu toàn thời gian, ngày, tuần, tháng.
 
 ## Placeholder

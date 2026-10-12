@@ -17,8 +17,8 @@ import { TOOL_ICONS } from '../tool-icons'
         <span class="desc">{{ t.desc }}</span>
       </a>
 
-      <!-- ô giữ chỗ cho công cụ sắp có, để lưới đủ 6 ô -->
-      <div class="tool-card soon home-card" aria-label="Công cụ mới, sắp ra mắt">
+      <!-- ô giữ chỗ cho công cụ sắp có, chỉ hiện khi số công cụ lẻ để lưới 2 cột không bị trống một ô -->
+      <div v-if="TOOLS.length % 2" class="tool-card soon home-card" aria-label="Công cụ mới, sắp ra mắt">
         <span class="icon"><Sparkles :size="20" aria-hidden="true" /></span>
         <span class="title">Thêm công cụ mới <span class="home-tag">Sắp ra mắt</span></span>
         <span class="desc">DotMan sẽ có thêm công cụ hỗ trợ cấu hình. Hãy quay lại sớm nhé.</span>

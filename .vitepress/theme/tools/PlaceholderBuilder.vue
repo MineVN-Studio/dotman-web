@@ -108,7 +108,10 @@ const premium = computed(
         <label v-if="period === 'frame'" class="tool-field">
           <span class="tool-label">ID khung thời gian</span>
           <input v-model="frameId" type="text" placeholder="giang-sinh-2026" />
-          <span class="tool-hint">ID khai báo trong <code>khungthoigian.yml</code></span>
+          <span class="tool-hint">
+            ID khai báo trong <code>khungthoigian.yml</code>, chưa có thì tạo bằng công cụ
+            <a href="/docs/cong-cu/tao-khung-thoi-gian">Tạo khung thời gian</a>.
+          </span>
         </label>
       </div>
 

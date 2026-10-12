@@ -9,4 +9,6 @@ Chọn loại dữ liệu, khoảng thời gian và hạng để tạo placehold
 
 Giải thích chi tiết từng placeholder xem tại [Placeholder API](/docs/tham-khao/placeholder-api).
 
+Muốn hiển thị top nạp theo sự kiện (Tết, Giáng sinh...)? Tạo khung thời gian bằng công cụ [Tạo khung thời gian](/docs/cong-cu/tao-khung-thoi-gian), rồi chọn **Khung thời gian** ở đây.
+
 <PlaceholderBuilder />

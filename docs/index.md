@@ -1,14 +1,14 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-title: DotMan - Donation Manager
-description: Giải pháp quản lý dòng tiền cho server Minecraft Việt Nam, dễ dàng tích hợp các cổng thanh toán thẻ cào và ngân hàng. Với các tính năng quản trị, thống kê, lịch sử giao dịch và khuyến mãi.
+title: DotMan - Plugin nạp thẻ cho server Minecraft Việt Nam
+description: Plugin nạp thẻ cào và chuyển khoản ngân hàng cho server Minecraft Việt Nam, kèm khuyến mãi, mốc nạp, top nạp, thống kê, lịch sử nạp và quản lý dòng tiền.
 titleTemplate: false
 
 hero:
   name: DotMan
-  text: Donation Manager
-  tagline: Giải pháp quản lý dòng tiền cho server Minecraft Việt Nam, dễ dàng tích hợp các cổng thanh toán thẻ cào và ngân hàng. Với các tính năng quản trị, thống kê, lịch sử giao dịch và khuyến mãi.
+  text: Plugin nạp thẻ cho server Minecraft
+  tagline: Plugin nạp thẻ cào và chuyển khoản ngân hàng cho server Minecraft Việt Nam, kèm khuyến mãi, mốc nạp, top nạp, thống kê, lịch sử nạp và quản lý dòng tiền.
   image:
     src: /dotman.png
     alt: DotMan
@@ -77,7 +77,7 @@ features:
 
 <div class="home-section home-more">
 
-Xem đầy đủ tính năng và so sánh giữa bản miễn phí với Premium tại [trang Tính năng](/docs/huong-dan/tinh-nang).
+Xem đầy đủ tính năng và so sánh giữa bản miễn phí với Premium tại [Tính năng](/docs/huong-dan/tinh-nang).
 
 </div>
 

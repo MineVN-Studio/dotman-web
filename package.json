@@ -8,7 +8,8 @@
     "dw:preview": "vitepress preview",
     "dw:start": "vitepress build && vitepress preview",
     "dw:sync-config": "node scripts/sync-config-mau.mjs",
-    "dw:seo": "node scripts/seo-check.mjs"
+    "dw:seo": "node scripts/seo-check.mjs",
+    "dw:share-image": "node scripts/share-image.mjs"
   },
   "devDependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",

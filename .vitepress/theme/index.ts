@@ -1,6 +1,7 @@
 import { defineAsyncComponent, defineComponent, h, nextTick, onBeforeUnmount, onMounted, watch } from 'vue'
-import { useData, useRoute, type Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+import { useData, useRoute, useRouter, type Theme } from 'vitepress'
+// bản không kèm font Inter: site dùng Be Vietnam Pro, tránh tải và preload thừa font mặc định
+import DefaultTheme from 'vitepress/theme-without-fonts'
 import '@fontsource/be-vietnam-pro/400.css'
 import '@fontsource/be-vietnam-pro/500.css'
 import '@fontsource/be-vietnam-pro/600.css'
@@ -43,7 +44,16 @@ export default {
   Layout: defineComponent({
     setup() {
       const route = useRoute()
-      const { frontmatter } = useData()
+      const router = useRouter()
+      const { frontmatter, page } = useData()
+      // GitHub Pages trả 404 cho đường dẫn thừa dấu / ở cuối (ví dụ /docs/), chuyển sang bản không có dấu /
+      const fixTrailingSlash = () => {
+        const { pathname, search, hash } = location
+        if (!page.value.isNotFound || pathname === '/' || !pathname.endsWith('/')) return
+        const href = pathname.replace(/\/+$/, '') + search + hash
+        history.replaceState(history.state, '', href)
+        router.go(href)
+      }
       let stop = () => {}
       // khối của trang chủ hiện dần khi cuộn tới, theo dõi lại sau mỗi lần chuyển trang
       const start = () => {
@@ -52,10 +62,17 @@ export default {
       }
       let stopSmooth = () => {}
       onMounted(() => {
+        fixTrailingSlash()
         start()
         stopSmooth = setupSmoothScroll()
       })
-      watch(() => route.path, () => nextTick(start))
+      watch(
+        () => route.path,
+        () => {
+          fixTrailingSlash()
+          nextTick(start)
+        },
+      )
       onBeforeUnmount(() => {
         stop()
         stopSmooth()

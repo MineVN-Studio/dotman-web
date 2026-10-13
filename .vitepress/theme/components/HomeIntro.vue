@@ -5,10 +5,10 @@
 <template>
   <section class="home-intro">
     <span class="eyebrow">Vì sao chọn DotMan?</span>
-    <h2>Giải pháp quản lý dòng tiền <span class="top">số 1</span> cho server <span class="home-grad-text">Minecraft Việt Nam</span></h2>
+    <h2>Plugin nạp thẻ <span class="top">số 1</span> cho server <span class="home-grad-text">Minecraft Việt Nam</span></h2>
     <p>
       Hiện đại nhất, đầy đủ nhất: Nạp thẻ cào, chuyển khoản ngân hàng, đa dạng cổng thanh toán, khuyến mãi,
-      mốc nạp và đua top trong một plugin duy nhất, được các server Minecraft lớn ở Việt Nam tin dùng.
+      mốc nạp, đua top, quản lý dòng tiền trong một plugin duy nhất, được các server Minecraft lớn ở Việt Nam tin dùng.
     </p>
   </section>
 </template>
@@ -17,13 +17,14 @@
 .home-intro {
   max-width: 800px;
   margin: 0 auto;
-  padding: 48px 24px 8px;
+  /* đệm dưới 24px để chữ cách thẻ tính năng bằng với các khối khác trên trang chủ */
+  padding: 48px 24px 24px;
   text-align: center;
 }
 
 @media (min-width: 640px) {
   .home-intro {
-    padding: 56px 48px 8px;
+    padding: 56px 48px 24px;
   }
 }
 
@@ -49,6 +50,7 @@ h2 {
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.3px;
+  text-wrap: balance;
 }
 
 @media (min-width: 640px) {

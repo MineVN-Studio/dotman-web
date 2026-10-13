@@ -8,7 +8,7 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
     <div class="panel">
       <div class="days" aria-hidden="true">
         <span class="free">Miễn phí</span>
-        <span class="num home-grad-text">14</span>
+        <span class="num">14</span>
         <span class="unit">ngày dùng thử</span>
       </div>
 
@@ -84,6 +84,7 @@ const STEPS = ['Tham gia Discord MineVN Studio', 'Mở ticket đăng ký dùng t
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -3px;
+  color: var(--vp-c-brand-1);
 }
 
 .unit {

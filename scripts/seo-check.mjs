@@ -20,7 +20,8 @@ const SITE = 'https://dotman.minevn.net'
 
 // Google hiển thị khoảng 60 ký tự của tiêu đề và 155 đến 160 ký tự của mô tả
 const TITLE_MAX = 60
-const TITLE_SUFFIX = ' | DotMan Docs'.length
+// khớp titleTemplate trong .vitepress/config.mts, title đã có chữ DotMan thì không cộng hậu tố
+const TITLE_SUFFIX = ' | DotMan'.length
 const DESC_MIN = 50
 const DESC_MAX = 160
 
@@ -62,7 +63,8 @@ for (const file of mdFiles) {
 
   if (title) {
     // trang chủ không dùng titleTemplate nên không cộng hậu tố
-    const total = String(title).length + (fm.titleTemplate === false ? 0 : TITLE_SUFFIX)
+    const noSuffix = fm.titleTemplate === false || String(title).includes('DotMan')
+    const total = String(title).length + (noSuffix ? 0 : TITLE_SUFFIX)
     if (total > TITLE_MAX) warnings.push(`${rel}: title dài ${total} ký tự (nên dưới ${TITLE_MAX}): ${title}`)
     if (titles.has(title)) errors.push(`${rel}: title trùng với ${titles.get(title)}`)
     titles.set(title, rel)

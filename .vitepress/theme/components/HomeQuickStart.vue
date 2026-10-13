@@ -89,7 +89,7 @@ const STEPS = [
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--home-a, var(--vp-c-brand-1)), var(--home-b, #e9a915));
+  background: var(--home-a, var(--vp-c-brand-1));
   color: #1b1b1f;
   font-size: 15px;
   font-weight: 700;

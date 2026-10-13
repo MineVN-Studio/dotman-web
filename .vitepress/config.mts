@@ -116,8 +116,10 @@ const sidebar: DefaultTheme.SidebarItem[] = [
   },
 ]
 
-const SITE_NAME = 'DotMan - Donation Manager'
+const SITE_NAME = 'DotMan'
 // ảnh khi chia sẻ link, bắt buộc là đường dẫn tuyệt đối
+// trang chủ dùng ảnh ngang share.png (tạo lại bằng `bun run dw:share-image`), các trang khác dùng logo vuông
+const SHARE_IMAGE_HOME = { url: SITE_URL + '/share.png', width: 1200, height: 630, alt: 'DotMan - Plugin nạp thẻ cho server Minecraft' }
 const SHARE_IMAGE = { url: SITE_URL + '/dotman.png', width: 512, height: 512, alt: 'Logo DotMan' }
 const PUBLISHER = { '@type': 'Organization', name: 'MineVN Studio', url: 'https://minevn.net/studio' }
 
@@ -138,11 +140,14 @@ export default defineConfig({
   srcDir: 'docs',
   lang: 'vi-VN',
   title: 'DotMan',
-  titleTemplate: ':title',
+  // title đã có chữ DotMan thì không thêm hậu tố, xem transformPageData
+  titleTemplate: ':title | DotMan',
   // đồng bộ với tagline trong hero của docs/index.md; các trang không tự khai báo description cũng dùng dòng này
   description:
-    'Giải pháp quản lý dòng tiền cho server Minecraft Việt Nam, dễ dàng tích hợp các cổng thanh toán thẻ cào và ngân hàng. Với các tính năng quản trị, thống kê, lịch sử giao dịch và khuyến mãi.',
+    'Plugin nạp thẻ cào và chuyển khoản ngân hàng cho server Minecraft Việt Nam, kèm khuyến mãi, mốc nạp, top nạp, thống kê, lịch sử nạp và quản lý dòng tiền.',
   cleanUrls: true,
+  // lấy ngày sửa từ git, hiện cuối trang và thêm lastmod vào sitemap
+  lastUpdated: true,
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/dotman.png' }],
@@ -150,7 +155,6 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#3ecf8e' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'DotMan' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
   ],
 
   sitemap: {
@@ -161,8 +165,14 @@ export default defineConfig({
     plugins: [markdownSourceDevPlugin(SRC_DIR)],
   },
 
-  // Ảnh chia sẻ hiện là logo vuông dotman.png: với twitter:card là summary, Discord và các nơi khác hiện nó dạng ảnh nhỏ (thumbnail) góc phải của embed.
-  // Khi có ảnh ngang 1200x630 thì đổi SHARE_IMAGE và twitter:card thành summary_large_image để ảnh hiện lớn bên dưới.
+  transformPageData(pageData) {
+    if (pageData.frontmatter.titleTemplate === undefined && pageData.title.includes('DotMan')) {
+      pageData.titleTemplate = ':title'
+    }
+  },
+
+  // Ảnh ngang đi với twitter:card summary_large_image để Discord và các nơi khác hiện ảnh lớn bên dưới embed.
+  // Logo vuông đi với summary để hiện dạng ảnh nhỏ (thumbnail) góc phải của embed.
   transformHead({ pageData, description }) {
     if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex, nofollow' }]]
 
@@ -171,6 +181,7 @@ export default defineConfig({
     const url = SITE_URL + path
 
     const isHome = pageData.relativePath === 'index.md'
+    const image = isHome ? SHARE_IMAGE_HOME : SHARE_IMAGE
     const ldJson = (data: object): HeadConfig => ['script', { type: 'application/ld+json' }, JSON.stringify(data)]
 
     const structured: HeadConfig[] = []
@@ -180,10 +191,26 @@ export default defineConfig({
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           name: SITE_NAME,
+          alternateName: 'DotMan - Donation Manager',
           url: SITE_URL + '/',
           inLanguage: 'vi-VN',
           description,
           publisher: PUBLISHER,
+        }),
+        ldJson({
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'DotMan',
+          alternateName: 'Plugin nạp thẻ cho server Minecraft Việt Nam',
+          applicationCategory: 'GameApplication',
+          operatingSystem: 'Spigot, Paper, Folia',
+          url: SITE_URL + '/',
+          description,
+          publisher: PUBLISHER,
+          offers: [
+            { '@type': 'Offer', name: 'Miễn phí', price: 0, priceCurrency: 'VND' },
+            { '@type': 'Offer', name: 'Premium', price: 349000, priceCurrency: 'VND' },
+          ],
         }),
       )
     } else {
@@ -215,13 +242,14 @@ export default defineConfig({
       ['meta', { property: 'og:title', content: pageData.title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: url }],
-      ['meta', { property: 'og:image', content: SHARE_IMAGE.url }],
+      ['meta', { name: 'twitter:card', content: isHome ? 'summary_large_image' : 'summary' }],
+      ['meta', { property: 'og:image', content: image.url }],
       ['meta', { property: 'og:image:type', content: 'image/png' }],
-      ['meta', { property: 'og:image:width', content: String(SHARE_IMAGE.width) }],
-      ['meta', { property: 'og:image:height', content: String(SHARE_IMAGE.height) }],
-      ['meta', { property: 'og:image:alt', content: SHARE_IMAGE.alt }],
-      ['meta', { name: 'twitter:image', content: SHARE_IMAGE.url }],
-      ['meta', { name: 'twitter:image:alt', content: SHARE_IMAGE.alt }],
+      ['meta', { property: 'og:image:width', content: String(image.width) }],
+      ['meta', { property: 'og:image:height', content: String(image.height) }],
+      ['meta', { property: 'og:image:alt', content: image.alt }],
+      ['meta', { name: 'twitter:image', content: image.url }],
+      ['meta', { name: 'twitter:image:alt', content: image.alt }],
     ]
   },
 
@@ -294,6 +322,7 @@ export default defineConfig({
 
     outline: { level: [2, 3], label: 'Trên trang này' },
     docFooter: { prev: 'Trang trước', next: 'Trang sau' },
+    lastUpdated: { text: 'Cập nhật lần cuối', formatOptions: { dateStyle: 'long', forceLocale: true } },
     notFound: {
       title: 'KHÔNG TÌM THẤY TRANG',
       quote: 'Trang bạn tìm không tồn tại hoặc đã được di chuyển.',

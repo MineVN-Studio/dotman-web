@@ -1,6 +1,6 @@
 ---
 title: Releases - DotMan và MineVNLib
-description: 'Lịch sử cập nhật của DotMan và MineVNLib'
+description: 'Lịch sử cập nhật, ghi chú thay đổi và link tải từng phiên bản của plugin DotMan và thư viện MineVNLib.'
 ---
 
 # Releases

@@ -1,11 +1,16 @@
 ---
 title: Nạp thẻ cào tự động cho server Minecraft
-description: 'Cấu hình nạp thẻ cào trong DotMan: Chọn cổng gạch thẻ Card2K, TheSieuRe, GameBank, mệnh giá, lệnh thưởng và giao diện nạp thẻ.'
+description: 'Cấu hình plugin nạp thẻ cào DotMan cho server Minecraft: Chọn cổng gạch thẻ Card2K, TheSieuRe, GameBank, mệnh giá, lệnh thưởng và giao diện nạp thẻ.'
 ---
 
-# Nạp thẻ cào
+# Nạp thẻ cào cho server Minecraft
 
-Người chơi nạp thẻ cào qua giao diện `/napthe` hoặc lệnh nạp nhanh. Thẻ được gửi tới cổng gạch thẻ, nạp thành công thì plugin cộng point và chạy lệnh thưởng.
+DotMan là plugin nạp thẻ cào tự động cho server Minecraft: Người chơi nạp thẻ ngay trong game qua giao diện `/napthe` hoặc lệnh nạp nhanh. Thẻ được gửi tới cổng gạch thẻ, nạp thành công thì plugin cộng point và chạy lệnh thưởng.
+
+- **Nhà mạng:** Viettel, Mobifone, Vinaphone, Vietnamobile, cùng thẻ game Garena, Zing, Vcoin và Gate.
+  - Bật/tắt từng loại tại [Loại thẻ chấp nhận](#loai-the-chap-nhan).
+- **Cổng gạch thẻ:** Card2K, TheSieuRe và GameBank.
+  - Bản Premium thêm GachThe1s và GachThe5s.
 
 ## Chọn cổng gạch thẻ
 

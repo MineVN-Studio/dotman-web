@@ -33,6 +33,13 @@ point-unit: 'xu'
 #   1. Sửa mục này thành thesieure rồi /dotman reload (plugin vẫn chạy provider cũ, nhưng file providers/thesieure.yml sẽ được tạo)
 #   2. Điền đầy đủ thông tin vào providers/thesieure.yml
 #   3. Chạy /dotman configdb <mật khẩu xác minh> rồi /dotman reload
+# Muốn sửa API khi vẫn dùng provider cũ:
+#   1. Sửa trong file providers/<provider>.yml
+#   2. Chạy /dotman configdb <mật khẩu xác minh>, kiểm tra danh sách thông tin khác database rồi /dotman reload
+#   Chỉ sửa file rồi reload thì không có tác dụng, plugin dùng thông tin đã lưu trên database.
+# Sau khi configdb có thể xóa API trong file cho an toàn, plugin vẫn chạy bằng API đã lưu trên database.
+# Về sau nếu chạy lại configdb (ví dụ để lưu cấu hình ngân hàng) mà API trong file đã bị xóa,
+# thì API trên database vẫn được giữ nguyên, không bị xóa theo.
 provider: card2k
 
 # Lượng points được cộng ứng với giá trị nạp

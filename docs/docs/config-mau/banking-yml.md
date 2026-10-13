@@ -33,6 +33,13 @@ enabled: false
 #   1. Sửa mục này thành SEPAY rồi /dotman reload (plugin vẫn chạy provider cũ, nhưng file providers/banking/sepay.yml sẽ được tạo)
 #   2. Điền đầy đủ thông tin vào providers/banking/sepay.yml
 #   3. Chạy /dotman configdb <mật khẩu xác minh> rồi /dotman reload
+# Muốn sửa thông tin khi vẫn dùng provider cũ (ngân hàng, số tài khoản, tên chủ tài khoản, API/mật khẩu):
+#   1. Sửa trong file providers/banking/<provider>.yml
+#   2. Chạy /dotman configdb <mật khẩu xác minh>, kiểm tra danh sách thông tin khác database rồi /dotman reload
+#   Chỉ sửa file rồi reload thì không có tác dụng, plugin dùng thông tin đã lưu trên database.
+# Sau khi configdb có thể xóa API/mật khẩu trong file cho an toàn, plugin vẫn chạy bằng thông tin đã lưu trên database.
+# Về sau nếu chạy lại configdb (ví dụ để sửa số tài khoản) mà API/mật khẩu trong file đã bị xóa,
+# thì API/mật khẩu trên database vẫn được giữ nguyên, không bị xóa theo.
 provider: MBBANK
 
 # Thời gian quét lịch sử giao dịch (giây)

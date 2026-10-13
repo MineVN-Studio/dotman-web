@@ -5,9 +5,7 @@ description: Tạo mocnap.yml, mocnaptong.yml, phanthuongtop.yml cho DotMan bằ
 
 # Tạo mốc nạp & thưởng top
 
-Tạo nội dung cho 3 file bằng form, không cần nhớ cú pháp YAML:
-
-| Thẻ | File | Hướng dẫn |
+| Tab | File | Hướng dẫn |
 |-----|------|-----------|
 | Mốc nạp cá nhân | `mocnap.yml` | [Mốc nạp cá nhân](/docs/phan-thuong/moc-nap-ca-nhan) |
 | Mốc nạp tổng server | `mocnaptong.yml` | [Mốc nạp tổng server](/docs/phan-thuong/moc-nap-tong) |

@@ -12,7 +12,7 @@ description: 'Tạo banking.yml và file cổng ngân hàng MBBank, PayOS, SePay
 
 Công cụ kiểm tra các lỗi thường gặp, như còn giữ giá trị mẫu, số tiền tối thiểu không hợp lệ, mức nạp bị trùng.
 
-- Thông tin đăng nhập, API chỉ xử lý trên trình duyệt, không gửi đi đâu.
+- Thông tin đăng nhập, API chỉ xử lý trên trình duyệt của bạn.
 - Đang dùng `banking.yml` cấu trúc cũ? Dán vào mục **Nhập từ file đang có** để chuyển sang cấu trúc mới.
 
 Giải thích chi tiết từng tùy chọn xem tại [Chuyển khoản ngân hàng](/docs/nap-tien/ngan-hang).

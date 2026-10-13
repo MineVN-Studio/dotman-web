@@ -7,7 +7,7 @@ import DateTimeField from './DateTimeField.vue'
 import IconButton from './IconButton.vue'
 import ToolIssues from './ToolIssues.vue'
 import ToolSelect, { type SelectOption } from './ToolSelect.vue'
-import { parseConfigDateTime } from './promo'
+import { colorSegments, parseConfigDateTime } from './promo'
 import { q } from './yaml-out'
 import { useSessionState } from './session-state'
 
@@ -216,7 +216,10 @@ function doImport() {
   <div class="tool vp-raw">
     <div v-for="(f, i) in frames" :key="f.id" class="tool-panel">
       <div class="item-head">
-        <h4 class="tool-panel-title">{{ f.name.trim() || `Khung ${i + 1}` }}</h4>
+        <h4 class="tool-panel-title">
+          <span v-for="(seg, k) in colorSegments(f.name.trim() || `Khung ${i + 1}`)" :key="k"
+            :style="{ color: seg.color, fontWeight: seg.bold ? 700 : undefined }">{{ seg.text }}</span>
+        </h4>
         <div class="tool-actions">
           <IconButton :icon="ArrowUp" tip="Lên trên" :disabled="i === 0" @click="move(i, -1)" />
           <IconButton :icon="ArrowDown" tip="Xuống dưới" :disabled="i === frames.length - 1" @click="move(i, 1)" />

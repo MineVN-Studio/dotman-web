@@ -5,11 +5,6 @@ description: 'Tạo khungthoigian.yml cho DotMan Premium: Khung thời gian sự
 
 # Tạo khung thời gian <Badge type="tip" text="Premium" />
 
-Khung thời gian là một sự kiện có thời gian bắt đầu và kết thúc riêng, ví dụ Tết, Giáng sinh. Tổng nạp trong khung được theo dõi riêng để:
-
-- Đua top theo sự kiện, hiển thị bằng placeholder.
-- Đặt mốc nạp cá nhân, mốc nạp tổng chỉ tính trong sự kiện.
-
 Chọn tên và thời gian để tạo `khungthoigian.yml`:
 
 - ID được tạo từ tên nếu để trống, ví dụ `Giáng sinh 2026` thành `giang-sinh-2026`.

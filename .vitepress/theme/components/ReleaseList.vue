@@ -29,15 +29,19 @@ function downloadFiles(r: Release) {
   return jars.length ? jars : r.assets
 }
 
-const channel = ref<Channel>('stable')
-const query = ref('')
-const hideEmpty = ref(true)
-
 const counts = computed(() => ({
   stable: releases.value.filter((r) => !r.prerelease).length,
   beta: releases.value.filter((r) => r.prerelease).length,
   all: releases.value.length,
 }))
+// chỉ hiện nhóm tab khi có cả stable lẫn beta, còn một loại thì không cần chuyển qua lại
+const hasBothChannels = computed(() => counts.value.stable > 0 && counts.value.beta > 0)
+
+// mặc định xem stable, nếu chưa có bản stable nào mà đã có beta thì xem luôn beta
+const channel = ref<Channel>(counts.value.stable === 0 && counts.value.beta > 0 ? 'beta' : 'stable')
+const query = ref('')
+const hideEmpty = ref(true)
+
 const channels = computed(() => [
   { value: 'stable' as const, label: 'Stable', count: counts.value.stable },
   { value: 'beta' as const, label: 'Beta', count: counts.value.beta },
@@ -165,7 +169,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
       </p>
 
       <div class="controls">
-        <div v-if="counts.beta > 0" class="channels" role="radiogroup" aria-label="Kênh phát hành">
+        <div v-if="hasBothChannels" class="channels" role="radiogroup" aria-label="Kênh phát hành">
           <button v-for="c in channels" :key="c.value" type="button" role="radio" class="channel"
             :class="{ active: channel === c.value }" :aria-checked="channel === c.value" @click="channel = c.value">
             {{ c.label }} <span class="channel-count">{{ c.count }}</span>

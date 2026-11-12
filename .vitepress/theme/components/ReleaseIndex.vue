@@ -5,6 +5,7 @@ import { data } from '../../../docs/docs/releases/releases.data'
 
 const BLURBS: Record<string, string> = {
   dotman: 'Bản miễn phí của DotMan.',
+  premium: 'Bản trả phí của DotMan, phát hành và tải trên Discord MineVN Studio.',
   minevnlib: 'Thư viện dùng chung cho các plugin của MineVN, DotMan cần plugin này để chạy.',
 }
 

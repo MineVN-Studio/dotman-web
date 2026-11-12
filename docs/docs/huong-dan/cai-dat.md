@@ -88,7 +88,7 @@ database:
 
 ## Cập nhật plugin
 
-1. Xem thay đổi của bản mới tại [Releases: DotMan](/docs/releases/dotman).
+1. Xem thay đổi của bản mới tại [Releases: DotMan](/docs/releases/dotman), hoặc [Releases: DotMan Premium](/docs/releases/premium) nếu dùng bản Premium.
 2. Cập nhật luôn MineVNLib lên bản mới nhất tại [Releases: MineVNLib](/docs/releases/minevnlib), thông thường chỉ cần cập nhật MineVNLib là có thể hoạt động trên phiên bản Minecraft mới.
 3. Thay file jar cũ trong thư mục `plugins` bằng file mới rồi restart server.
 

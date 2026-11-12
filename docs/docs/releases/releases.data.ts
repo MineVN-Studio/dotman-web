@@ -1,6 +1,10 @@
 // Lấy danh sách release từ GitHub lúc build (VitePress data loader).
 // Đặt biến môi trường GITHUB_TOKEN để tránh giới hạn 60 request/giờ của GitHub API.
+// Changelog bản Premium không có trên GitHub, được viết tay trong changelog/premium/*.md.
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { createMarkdownRenderer, defineLoader } from 'vitepress'
+import { parse as parseYaml } from 'yaml'
 
 export interface ReleaseAsset {
   name: string
@@ -20,7 +24,8 @@ export interface Release {
   hasNotes: boolean
   html: string
   search: string
-  url: string
+  /** Link xem trên GitHub, release viết tay (Premium) không có */
+  url?: string
   compareUrl?: string
   assets: ReleaseAsset[]
 }
@@ -28,8 +33,11 @@ export interface Release {
 export interface ReleaseProject {
   key: string
   name: string
-  repo: string
-  releasesUrl: string
+  /** Repo GitHub, project viết tay (Premium) không có */
+  repo?: string
+  releasesUrl?: string
+  /** Kênh Discord chứa file jar của từng kênh phát hành, dùng cho project không có file đính kèm (Premium) */
+  channelLinks?: { stable: string; beta: string }
   releases: Release[]
   error?: string
 }
@@ -109,7 +117,89 @@ function postprocessHtml(html: string) {
     })
 }
 
+const PREMIUM_DIR = 'changelog/premium'
+
+/** Kênh Discord MineVN Studio chứa file jar bản Premium */
+const PREMIUM_CHANNEL_LINKS = {
+  stable: 'https://discord.com/channels/1068181110036635678/1484891352519938148',
+  beta: 'https://discord.com/channels/1068181110036635678/1407762581988311060',
+}
+
+/** Hiển thị theo thứ tự này ở trang tổng quan */
+const PROJECT_ORDER = ['dotman', 'premium', 'minevnlib']
+
+/** Ngày dạng dd/mm/yyyy hoặc dd-mm-yyyy, có thể kèm giờ HH:mm, hiểu là giờ Việt Nam */
+function parsePremiumDate(raw: string, file: string) {
+  const match = raw.trim().match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/)
+  if (match) {
+    const [day, month, year, hour, minute] = [match[1], match[2], match[3], match[4] ?? '0', match[5] ?? '0'].map(Number)
+    // Date tự cuộn ngày sai sang tháng sau (31/02 thành 03/03) nên phải so lại từng phần
+    const utc = new Date(Date.UTC(year, month - 1, day, hour, minute))
+    if (utc.getUTCFullYear() === year && utc.getUTCMonth() === month - 1 && utc.getUTCDate() === day && hour < 24 && minute < 60) {
+      // giờ Việt Nam (UTC+7) về UTC
+      return new Date(utc.getTime() - 7 * 3600 * 1000).toISOString()
+    }
+  }
+  throw new Error(`[premium] ${file}: "date" không hợp lệ (${raw}), dùng dạng 12/11/2026, 12-11-2026 hoặc 12/11/2026 14:30`)
+}
+
+/** Đọc changelog Premium từ changelog/premium/*.md, mỗi file là một phiên bản */
+function loadPremium(md: Awaited<ReturnType<typeof createMarkdownRenderer>>): ReleaseProject {
+  const dir = join(process.cwd(), PREMIUM_DIR)
+  let files: string[] = []
+  try {
+    files = readdirSync(dir).filter((f) => f.toLowerCase().endsWith('.md') && f.toLowerCase() !== 'readme.md' && !f.startsWith('_'))
+  } catch {
+    // chưa có thư mục thì coi như chưa có bản nào
+  }
+
+  const seen = new Set<string>()
+  const items = files.map((file) => {
+    const match = readFileSync(join(dir, file), 'utf8').replace(/\r\n/g, '\n').match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/)
+    if (!match) throw new Error(`[premium] ${file}: thiếu frontmatter, file phải bắt đầu bằng --- version, date, channel ---`)
+    const meta = (parseYaml(match[1]) ?? {}) as Record<string, unknown>
+
+    const version = String(meta.version ?? '').trim()
+    if (!version) throw new Error(`[premium] ${file}: thiếu "version"`)
+    if (seen.has(version)) throw new Error(`[premium] ${file}: trùng version ${version}`)
+    seen.add(version)
+
+    const channel = String(meta.channel ?? 'stable').trim().toLowerCase()
+    if (channel !== 'stable' && channel !== 'beta') {
+      throw new Error(`[premium] ${file}: "channel" chỉ nhận stable hoặc beta (đang là ${channel})`)
+    }
+    if (meta.date === undefined) throw new Error(`[premium] ${file}: thiếu "date"`)
+
+    const title = meta.title ? String(meta.title).trim() : undefined
+    return { version, title, prerelease: channel === 'beta', datetime: parsePremiumDate(String(meta.date), file), body: match[2].trim() }
+  })
+
+  items.sort((a, b) => Date.parse(b.datetime) - Date.parse(a.datetime) || b.version.localeCompare(a.version, undefined, { numeric: true }))
+  const latestVersion = items.find((r) => !r.prerelease)?.version
+
+  return {
+    key: 'premium',
+    name: 'DotMan Premium',
+    channelLinks: PREMIUM_CHANNEL_LINKS,
+    releases: items.map((r) => ({
+      id: 'v' + r.version.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+      tag: r.version,
+      title: r.title,
+      date: formatDate(r.datetime),
+      datetime: r.datetime,
+      prerelease: r.prerelease,
+      latest: r.version === latestVersion,
+      hasNotes: r.body.length > 0,
+      html: r.body ? postprocessHtml(md.render(r.body, {})) : '',
+      search: `${r.version} ${r.title ?? ''} ${r.body}`.toLowerCase(),
+      assets: [],
+    })),
+  }
+}
+
 export default defineLoader({
+  // build lại khi sửa changelog Premium lúc chạy dev
+  watch: ['../../../changelog/premium/*.md'],
   async load(): Promise<ReleasesData> {
     const md = await createMarkdownRenderer(process.cwd(), {}, '/')
     const projects: Record<string, ReleaseProject> = {}
@@ -162,6 +252,9 @@ export default defineLoader({
       })
     }
 
-    return { syncedAt: formatDate(new Date().toISOString()), projects }
+    projects.premium = loadPremium(md)
+
+    const ordered = Object.fromEntries(PROJECT_ORDER.filter((key) => projects[key]).map((key) => [key, projects[key]]))
+    return { syncedAt: formatDate(new Date().toISOString()), projects: ordered }
   },
 })

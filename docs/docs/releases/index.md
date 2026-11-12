@@ -5,7 +5,7 @@ description: 'Lịch sử cập nhật, ghi chú thay đổi và link tải từ
 
 # Releases
 
-Lịch sử cập nhật của DotMan và MineVNLib. 
+Lịch sử cập nhật của DotMan, DotMan Premium và MineVNLib.
 
 <ReleaseIndex />
 
@@ -14,5 +14,5 @@ DotMan cần [MineVNLib](/docs/releases/minevnlib) để chạy, và bản DotMa
 
 - Khi cập nhật DotMan, hãy cập nhật luôn MineVNLib lên bản mới nhất.
 - Xem cách chọn bản jar MineVNLib tại [Cài đặt](/docs/huong-dan/cai-dat#chon-ban-minevnlib).
-- Bản Premium được phát hành trên Discord, xem tại [DotMan Releases](/docs/releases/dotman#dotman-premium).
+- Bản Premium được phát hành trên Discord, xem changelog tại [DotMan Premium Releases](/docs/releases/premium).
 :::

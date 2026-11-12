@@ -174,7 +174,7 @@ Bản Premium có tính năng **bảo mật cấu hình**: Mã hóa API key và 
 
 Thay file jar DotMan cũ bằng bản mới rồi restart server. Thông thường chỉ cần cập nhật MineVNLib là plugin chạy được trên phiên bản Minecraft mới.
 
-Không dùng lệnh `/reload` của server hay các plugin như PlugMan. Xem [Cập nhật plugin](/docs/huong-dan/cai-dat#cap-nhat-plugin) và theo dõi thay đổi tại [Releases](/docs/releases/dotman).
+Không dùng lệnh `/reload` của server hay các plugin như PlugMan. Xem [Cập nhật plugin](/docs/huong-dan/cai-dat#cap-nhat-plugin) và theo dõi thay đổi tại [Releases](/docs/releases/dotman) hoặc [Releases Premium](/docs/releases/premium).
 
 </FaqItem>
 

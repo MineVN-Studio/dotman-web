@@ -23,7 +23,7 @@ Hướng dẫn cài đặt và sử dụng các tính năng của **DotMan (Dona
 | [Tham khảo](/docs/tham-khao/danh-sach-lenh-va-permission) | Danh sách lệnh, permission và placeholder PlaceholderAPI |
 | [Công cụ](/docs/cong-cu/) | Công cụ trực tuyến giúp tạo cấu hình nhanh hơn |
 | [Config mẫu](/docs/config-mau/config-yml) | Nội dung mặc định của từng file cấu hình |
-| [Releases](/docs/releases/) | Lịch sử cập nhật của DotMan và MineVNLib |
+| [Releases](/docs/releases/) | Lịch sử cập nhật của DotMan, DotMan Premium và MineVNLib |
 
 ## Công cụ hỗ trợ
 

@@ -83,6 +83,15 @@ html.smooth-scroll {
   vertical-align: middle;
 }
 
+/* Bullet lồng nhau có ký hiệu riêng theo cấp: cấp 1 chấm đặc, cấp 2 vòng tròn rỗng, cấp 3 ô vuông (mặc định VitePress dùng chấm đặc cho mọi cấp) */
+.vp-doc li > ul {
+  list-style-type: circle;
+}
+
+.vp-doc li li > ul {
+  list-style-type: square;
+}
+
 /* Badge trong heading: căn giữa theo chiều dọc với chữ của heading */
 .vp-doc :is(h1, h2, h3, h4, h5, h6) > .VPBadge.VPBadge {
   margin-top: 0;
@@ -100,6 +109,18 @@ html.smooth-scroll {
 .dark {
   --vp-badge-tip-text: #facc15;
   --vp-badge-tip-bg: rgba(234, 179, 8, 0.16);
+}
+
+/* Badge "Miễn phí" (type="info") màu xanh chủ đạo, đối xứng với badge Premium màu vàng */
+:root {
+  --vp-badge-info-border: transparent;
+  --vp-badge-info-text: #0f6b3e;
+  --vp-badge-info-bg: rgba(19, 128, 74, 0.18);
+}
+
+.dark {
+  --vp-badge-info-text: #4ee09e;
+  --vp-badge-info-bg: rgba(62, 207, 142, 0.18);
 }
 
 .VPHome .home-section > h2,

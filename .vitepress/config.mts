@@ -5,6 +5,7 @@ import { TOOLS } from './tools-list'
 
 const SITE_URL = 'https://dotman.minevn.net'
 const SRC_DIR = fileURLToPath(new URL('../docs', import.meta.url))
+const PREMIUM_CHANGELOG_DIR = fileURLToPath(new URL('../changelog/premium', import.meta.url))
 
 // VitePress default slugify + chuyển "đ" thành "d" để anchor tiếng Việt gọn hơn
 const slugify = (s: string) =>
@@ -36,6 +37,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: false,
     items: [
       { text: 'DotMan', link: '/docs/releases/dotman' },
+      { text: 'DotMan Premium', link: '/docs/releases/premium' },
       { text: 'MineVNLib', link: '/docs/releases/minevnlib' },
     ],
   },
@@ -162,7 +164,16 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [markdownSourceDevPlugin(SRC_DIR)],
+    plugins: [
+      markdownSourceDevPlugin(SRC_DIR),
+      {
+        // changelog/premium nằm ngoài srcDir nên Vite không tự theo dõi, thêm vào để sửa file là trang dev tự cập nhật
+        name: 'watch-premium-changelog',
+        configureServer(server) {
+          server.watcher.add(PREMIUM_CHANGELOG_DIR)
+        },
+      },
+    ],
   },
 
   transformPageData(pageData) {

@@ -3,12 +3,16 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 // API nội bộ của VitePress: danh sách callback đăng ký qua onContentUpdated (mục lục bên phải dùng nó)
 import { contentUpdatedCallbacks } from 'vitepress/dist/client/app/utils.js'
 import { getScrollOffset } from 'vitepress'
-import { Download } from 'lucide-vue-next'
+import { Download, ExternalLink } from 'lucide-vue-next'
 import { data, type Release } from '../../../docs/docs/releases/releases.data'
 
 type Channel = 'stable' | 'beta' | 'all'
 
 const props = defineProps<{ project: string }>()
+
+// tên hiển thị trên tiêu đề card, ví dụ "Free Stable" và "Premium Beta"
+const CHANNEL_PREFIX: Record<string, string> = { dotman: 'Free', premium: 'Premium' }
+const channelTitle = (name: string) => [CHANNEL_PREFIX[props.project], name].filter(Boolean).join(' ')
 
 const project = computed(() => data.projects[props.project])
 const releases = computed(() => project.value?.releases ?? [])
@@ -93,7 +97,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
       <div class="downloads">
         <section v-if="latest" class="dl-card">
           <div class="dl-head">
-            <span class="dl-channel">Stable</span>
+            <span class="dl-channel">{{ channelTitle('Stable') }}</span>
             <span class="badge latest">Mới nhất</span>
           </div>
           <div class="dl-ver">
@@ -101,7 +105,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
             <span class="dl-date">{{ latest.date }}</span>
           </div>
           <p class="dl-note">Phiên bản ổn định để sử dụng cho server chính.</p>
-          <div class="dl-files">
+          <div v-if="latest.assets.length" class="dl-files">
             <a v-for="a in downloadFiles(latest)" :key="a.url" class="dl-btn" :href="a.url" rel="noreferrer">
               <Download :size="16" aria-hidden="true" />
               <span class="dl-info">
@@ -110,11 +114,19 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
               </span>
             </a>
           </div>
+          <div v-else-if="project.channelLinks" class="dl-files">
+            <a class="dl-btn" :href="project.channelLinks.stable" target="_blank" rel="noreferrer">
+              <ExternalLink :size="16" aria-hidden="true" />
+              <span class="dl-info">
+                <span class="dl-name">Mở trong Discord</span>
+              </span>
+            </a>
+          </div>
         </section>
 
         <section v-if="newerBeta" class="dl-card beta">
           <div class="dl-head">
-            <span class="dl-channel">Beta</span>
+            <span class="dl-channel">{{ channelTitle('Beta') }}</span>
             <span class="badge pre">Thử nghiệm</span>
           </div>
           <div class="dl-ver">
@@ -122,7 +134,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
             <span class="dl-date">{{ newerBeta.date }}</span>
           </div>
           <p class="dl-note">Phiên bản thử nghiệm các tính năng mới, có thể có lỗi khi dùng trên server chính.</p>
-          <div class="dl-files">
+          <div v-if="newerBeta.assets.length" class="dl-files">
             <a v-for="a in downloadFiles(newerBeta)" :key="a.url" class="dl-btn" :href="a.url" rel="noreferrer">
               <Download :size="16" aria-hidden="true" />
               <span class="dl-info">
@@ -131,14 +143,25 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
               </span>
             </a>
           </div>
+          <div v-else-if="project.channelLinks" class="dl-files">
+            <a class="dl-btn" :href="project.channelLinks.beta" target="_blank" rel="noreferrer">
+              <ExternalLink :size="16" aria-hidden="true" />
+              <span class="dl-info">
+                <span class="dl-name">Mở trong Discord</span>
+              </span>
+            </a>
+          </div>
         </section>
       </div>
 
-      <p class="dl-meta">
+      <p v-if="project.releasesUrl" class="dl-meta">
         <a :href="project.releasesUrl" target="_blank" rel="noreferrer">
           {{ releases.length }} bản phát hành trên GitHub
         </a>
         <span>Đồng bộ ngày {{ data.syncedAt }}</span>
+      </p>
+      <p v-else class="dl-meta">
+        <span>{{ releases.length }} bản phát hành</span>
       </p>
 
       <div class="controls">
@@ -156,7 +179,8 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
         </label>
       </div>
 
-      <p v-if="visible.length === 0" class="empty">Không có bản phát hành nào khớp.</p>
+      <p v-if="releases.length === 0" class="empty">Chưa có changelog nào được đăng.</p>
+      <p v-else-if="visible.length === 0" class="empty">Không có bản phát hành nào khớp.</p>
 
       <article v-for="r in visible" :key="r.id" class="release">
         <div class="release-head">
@@ -190,7 +214,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
           </table>
         </details>
 
-        <p class="release-links">
+        <p v-if="r.url" class="release-links">
           <a :href="r.url" target="_blank" rel="noreferrer">Xem trên GitHub</a>
           <a v-if="r.compareUrl" :href="r.compareUrl" target="_blank" rel="noreferrer">Toàn bộ thay đổi</a>
         </p>
@@ -461,6 +485,26 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', showHashRelease))
   margin: 8px 0 0;
   color: var(--vp-c-text-2);
   font-weight: 500;
+}
+
+/* Heading trong nội dung release (h3 là mục lớn, h4 là mục con): tách bằng khoảng cách và màu để không dính vào nhau */
+.release-body :deep(h3) {
+  margin: 40px 0 0;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  line-height: 28px;
+}
+
+.release-body :deep(h4) {
+  margin: 28px 0 0;
+  color: var(--vp-c-brand-1);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Heading đầu tiên của release ngay sau phần tiêu đề thì không cần khoảng cách lớn */
+.release-body :deep(h3:first-child) {
+  margin-top: 16px;
 }
 
 .release-empty {

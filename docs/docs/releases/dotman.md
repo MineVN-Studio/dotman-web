@@ -1,6 +1,6 @@
 ---
-title: DotMan Releases (bản miễn phí) - lịch sử cập nhật
-description: Lịch sử cập nhật và changelog của DotMan bản miễn phí, kèm link sang changelog của bản Premium.
+title: DotMan Free Releases - lịch sử cập nhật
+description: Lịch sử cập nhật và changelog của DotMan bản miễn phí,.
 outline: [2, 2]
 ---
 
